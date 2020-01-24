@@ -15,12 +15,13 @@
 <meta property="og:site_name" content="成凯得的博客">
 <meta property="og:description" content="R语言与地球化学数据处理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bkimg.cdn.bcebos.com/pic/6609c93d70cf3bc7c6e098a6d600baa1cc112a93?x-bce-process=image/resize,m_lfit,w_220,h_220,limit_1">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80%5CR%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80%5C2.png">
 <meta property="article:published_time" content="2020-01-23T06:06:18.000Z">
-<meta property="article:modified_time" content="2020-01-23T14:14:06.812Z">
+<meta property="article:modified_time" content="2020-01-24T01:03:08.824Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bkimg.cdn.bcebos.com/pic/6609c93d70cf3bc7c6e098a6d600baa1cc112a93?x-bce-process=image/resize,m_lfit,w_220,h_220,limit_1">
+<meta name="twitter:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80%5CR%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png">
   
     <link rel="alternative" href="/atom.xml" title="成凯得的博客" type="application/atom+xml">
   
@@ -64,6 +65,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+	        
+				<li><a href="/archives/index.html">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -136,12 +141,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,14 +185,17 @@
       
         <h1 id="R语言与地球化学数据处理"><a href="#R语言与地球化学数据处理" class="headerlink" title="R语言与地球化学数据处理"></a>R语言与地球化学数据处理</h1><a id="more"></a>
 <h2 id="什么是R语言？"><a href="#什么是R语言？" class="headerlink" title="什么是R语言？"></a>什么是R语言？</h2><p>R语言是一种用于统计分析、绘图的语言和操作环境。R属于GNU系统（一个自由的操作系统）的免费、源代码开放的软件，用于统计计算及统计制图。</p>
-<p><img src="https://bkimg.cdn.bcebos.com/pic/6609c93d70cf3bc7c6e098a6d600baa1cc112a93?x-bce-process=image/resize,m_lfit,w_220,h_220,limit_1" alt="R语言之父"><br>R语言之父：Ross Ihaka </p>
-<h2 id="为什么选择R语言？"><a href="#为什么选择R语言？" class="headerlink" title="为什么选择R语言？"></a>为什么选择R语言？</h2><blockquote>
+<h2 id="为什么选择R语言？"><a href="#为什么选择R语言？" class="headerlink" title="为什么选择R语言？"></a>为什么选择R语言？</h2><p>对于科研经费有限，不能使用正版商业软件进行数据处理的穷苦学生党们，可供选择其实并不多。更为常见的是使用盗版软件。<br>但</p>
+<blockquote>
 <p>R是免费的(R is free)</p>
 </blockquote>
-<p>对比商业软件SPSS及SAS来说，R具有更明显的语言特征。并且与C语言语法类似，适合广大具有C语言基础的大学生群体学习和使用。</p>
+<p> 仅仅需要付出一些学习成本，便能享受R带有的所有功能。共享全球所有R包开发者的智慧结晶。<br>对比商业软件SPSS及SAS来说，R具有更明显的语言特征。并且与C语言语法类似，适合广大具有C语言基础的大学生群体学习和使用。</p>
 <h2 id="如何理解“包”"><a href="#如何理解“包”" class="headerlink" title="如何理解“包”"></a>如何理解“包”</h2><p>“包”是指利用R语言集合整理出各学科中经常利用的函数计算及图集函数集合。用户通过<br><code>install.packages(&quot;GCDkit&quot;)</code><br>命令安装GCDkit包，用以简化地球化学数据处理在R语言中的处理步骤</p>
-<h2 id="R数据处理常用包"><a href="#R数据处理常用包" class="headerlink" title="R数据处理常用包"></a>R数据处理常用包</h2><p>“ggplot2”常用的作图软件，强大的作图能力可以和众多收费软件相抗衡。但是</p>
-<h1 id="下载安装R"><a href="#下载安装R" class="headerlink" title="下载安装R"></a>下载安装R</h1><h2 id="下载及安装步骤"><a href="#下载及安装步骤" class="headerlink" title="下载及安装步骤"></a>下载及安装步骤</h2><h2 id="地球化学数据实例"><a href="#地球化学数据实例" class="headerlink" title="地球化学数据实例"></a>地球化学数据实例</h2><p>在中国地质大学（武汉）资源学院开办的矿床统计预测课程学习过程中，多利用Excel来达到最终课程作业目的。但是实际上在完成作业后，日后阅读过程中很多细节在Excel表格中不能清晰体现出来。所以我利用R语言中的一些功能来完成相应的数据处理。</p>
+<h2 id="R数据处理常用包"><a href="#R数据处理常用包" class="headerlink" title="R数据处理常用包"></a>R数据处理常用包</h2><p>“ggplot2”常用的作图软件，强大的作图能力可以和众多商业软件相抗衡。</p>
+<h1 id="下载安装R"><a href="#下载安装R" class="headerlink" title="下载安装R"></a>下载安装R</h1><h2 id="下载及安装步骤"><a href="#下载及安装步骤" class="headerlink" title="下载及安装步骤"></a>下载及安装步骤</h2><p>登陆网址 [R语言下载]<a href="https://www.r-project.org/" target="_blank" rel="noopener">https://www.r-project.org/</a><br>点击超链接进入网址，选择适合自身电脑系统的版本进行下载<br><img src="%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80%5CR%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png" alt="网站界面"><br>点击<code>download R</code>选择离你最近的地理位置进行下载。CRAN mirror是指是为了方便世界各地的使用者下载R软件及相关软件包，在各地设置的镜像。各地的镜像都是R网站的备份文件，完全一样。所以，选择离你最近的镜像，你下载R软件或R包的速度相对较快。<br>这里选择清华大学镜像链接<br><img src="%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80%5C2.png" alt="选择链接"></p>
+<h2 id="地球化学数据实例"><a href="#地球化学数据实例" class="headerlink" title="地球化学数据实例"></a>地球化学数据实例</h2><p>在中国地质大学（武汉）资源学院开办的矿床统计预测课程学习过程中，多利用Excel来达到最终课程作业目的。但是实际上在完成作业后，日后阅读过程中很多细节在Excel表格中不能清晰体现出来。所以我利用R语言中的一些功能来完成相应的数据处理。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34834744&auto=1&height=66"></iframe>
+
 
       
 
