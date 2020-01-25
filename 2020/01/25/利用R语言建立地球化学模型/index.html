@@ -6,26 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>R语言与地球化学数据处理 | 成凯得的博客</title>
+  <title>利用R语言建立地球化学模型 | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="R语言与地球化学数据处理">
+  <meta name="description" content="本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipesin R Language书籍的学习，结合搜集来的文献资料进行处理与解释。  运用到的数学知识:最小二乘法  最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言与地球化学数据处理">
-<meta property="og:url" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:title" content="利用R语言建立地球化学模型">
+<meta property="og:url" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="R语言与地球化学数据处理">
+<meta property="og:description" content="本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipesin R Language书籍的学习，结合搜集来的文献资料进行处理与解释。  运用到的数学知识:最小二乘法  最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://uploads.cosx.org/2015/09/HadleyObama2.png">
-<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/R%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png">
-<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%E4%B8%8D%E5%90%8C%E7%B3%BB%E7%BB%9F.png">
-<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/3.png">
-<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%EF%BC%94.png">
-<meta property="article:published_time" content="2020-01-23T06:06:18.000Z">
-<meta property="article:modified_time" content="2020-01-25T03:15:06.137Z">
+<meta property="article:published_time" content="2020-01-25T03:16:55.000Z">
+<meta property="article:modified_time" content="2020-01-25T06:57:21.675Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://uploads.cosx.org/2015/09/HadleyObama2.png">
   
     <link rel="alternative" href="/atom.xml" title="成凯得的博客" type="application/atom+xml">
   
@@ -167,47 +160,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="w-认识R语言" class="article article-type-w " itemscope itemprop="blogPost">
+            <article id="post-利用R语言建立地球化学模型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      R语言与地球化学数据处理
+      利用R语言建立地球化学模型
     </h1>
   
 
         
-        <a href="/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/" class="archive-article-date">
-  	<time datetime="2020-01-23T06:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-23</time>
+        <a href="/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-01-25T03:16:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="R语言与地球化学数据处理"><a href="#R语言与地球化学数据处理" class="headerlink" title="R语言与地球化学数据处理"></a>R语言与地球化学数据处理</h1><a id="more"></a>
-<h2 id="什么是R语言？"><a href="#什么是R语言？" class="headerlink" title="什么是R语言？"></a>什么是R语言？</h2><p>R语言是一种用于统计分析、绘图的语言和操作环境。R属于GNU系统（一个自由的操作系统）的免费、源代码开放的软件，用于统计计算及统计制图。</p>
-<p>第一次接触R语言是在《矿床统计预测》课程上，跟随老师将软件下载，因为R相对于其他软件体量小，下载速度快而将其保留。后来才逐渐了解学习相关的知识并将其运用到实际数据处理之中。</p>
-<h2 id="为什么选择R语言？"><a href="#为什么选择R语言？" class="headerlink" title="为什么选择R语言？"></a>为什么选择R语言？</h2><p>对于科研经费有限，不能使用正版商业软件进行数据处理的穷苦学生党们，可供选择其实并不多。更为常见的是使用盗版软件。<br>但</p>
+        <p>本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes<br>in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。</p>
 <blockquote>
-<p>R是免费的(R is free)</p>
+<p>运用到的数学知识:最小二乘法</p>
 </blockquote>
-<p>[学习R语言的理由]（<a href="https://www.burns-stat.com/documents/tutorials/why-use-the-r-language/）" target="_blank" rel="noopener">https://www.burns-stat.com/documents/tutorials/why-use-the-r-language/）</a></p>
-<p> 仅仅需要付出一些学习成本，便能享受R带有的所有功能。共享全球所有R包开发者的智慧结晶。<br>对比商业软件SPSS及SAS来说，R具有更明显的语言特征。并且与C语言语法类似，适合广大具有C语言基础的大学生群体学习和使用。</p>
-<h2 id="如何理解“包”"><a href="#如何理解“包”" class="headerlink" title="如何理解“包”"></a>如何理解“包”</h2><p>“包”是指利用R语言集合整理出各学科中经常利用的函数计算及图集函数集合。用户通过<code>install.packages(&quot;GCDkit&quot;)</code><br>命令安装GCDkit包（处理地球化学数据函数包），用以简化地球化学数据处理在R语言中的处理步骤</p>
-<h2 id="R数据处理常用包"><a href="#R数据处理常用包" class="headerlink" title="R数据处理常用包"></a>R数据处理常用包</h2><p>R 包是用于简化诸如整合和绘制数据等常见任务代码的编程工具。不同的学科有不同的数据处理需求，不同行业的R包开发者让R语言在多种领域均有杰出的表现。<br>因此，Ｒ数据统计处理及作图所需要的包不同，根据自己对数据的分析需求加载不同的函数包。<br>R语言的发展依赖于众多R包开发者的努力，其中Hadley Wickham推动了R语言的革命性演化。<br><img src="https://uploads.cosx.org/2015/09/HadleyObama2.png" alt="HW"><br>“ggplot2”常用的作图软件，强大的作图能力可以和众多商业软件相抗衡。</p>
-<h1 id="下载安装R"><a href="#下载安装R" class="headerlink" title="下载安装R"></a>下载安装R</h1><h2 id="下载及安装步骤"><a href="#下载及安装步骤" class="headerlink" title="下载及安装步骤"></a>下载及安装步骤</h2><p>登陆网址 [R语言下载]<a href="https://www.r-project.org/" target="_blank" rel="noopener">https://www.r-project.org/</a><br>点击超链接进入网址，选择适合自身电脑系统的版本进行下载</p>
-<p><img src="R%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png" alt="网站界面"><br>点击<code>download R</code>选择离你最近的地理位置进行下载。CRAN mirror是指是为了方便世界各地的使用者下载R软件及相关软件包，在各地设置的镜像。各地的镜像都是R网站的备份文件，完全一样。所以，选择离你最近的镜像，你下载R软件或R包的速度相对较快。<br>这里选择清华大学镜像链接<br><img src="2.png" alt="选择链接"><br>点击<code>Download R for Windows</code>进行下载，如果是其他系统，点击其他链接即可。<br><img src="%E4%B8%8D%E5%90%8C%E7%B3%BB%E7%BB%9F.png" alt="不同系统"><br>点击<code>install R for the first time</code><img src="3.png" alt="安装R"><br>根据提示完成R语言安装，打开桌面快捷方式<br><img src="%EF%BC%94.png" alt="R界面">加载数据处理所需要的数据包</p>
-<h2 id="矿床统计预测数据实例"><a href="#矿床统计预测数据实例" class="headerlink" title="矿床统计预测数据实例"></a>矿床统计预测数据实例</h2><p>在中国地质大学（武汉）资源学院开办的矿床统计预测课程学习过程中，多利用Excel来达到最终课程作业目的。但是实际上在完成作业后，日后阅读过程中很多细节在Excel表格中不能清晰体现出来。所以我利用R语言中的一些功能来完成相应的数据处理。</p>
-<blockquote>
-<p>　马尔科夫链分析岩石地层剖面</p>
-</blockquote>
-<p>来源于维基百科<br>马尔可夫链（英语：Markov chain），又称离散时间马尔可夫链（discrete-time Markov chain，缩写为DTMC），因俄国数学家安德烈·马尔可夫（俄语：Андрей Андреевич Марков）得名，为状态空间中经过从一个状态到另一个状态的转换的随机过程。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34834744&auto=1&height=66"></iframe>
-
-
+<p>最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求得的数据与实际数据之间误差的平方和为最小。最小二乘法还可用于曲线拟合。其他一些优化问题也可通过最小化能量或最大化熵用最小二乘法来表达（百度百科）。</p>
+<h1 id="结晶分异"><a href="#结晶分异" class="headerlink" title="结晶分异"></a>结晶分异</h1><h1 id="部分熔融"><a href="#部分熔融" class="headerlink" title="部分熔融"></a>部分熔融</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
 
       
@@ -291,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +283,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/24/post-name/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          post_name
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客文章</div>
+    <a href="/2020/01/24/post-name/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">post_name</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -343,7 +312,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#R语言与地球化学数据处理"><span class="toc-number">1.</span> <span class="toc-text">R语言与地球化学数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是R语言？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选择R语言？"><span class="toc-number">1.2.</span> <span class="toc-text">为什么选择R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何理解“包”"><span class="toc-number">1.3.</span> <span class="toc-text">如何理解“包”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R数据处理常用包"><span class="toc-number">1.4.</span> <span class="toc-text">R数据处理常用包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载安装R"><span class="toc-number">2.</span> <span class="toc-text">下载安装R</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载及安装步骤"><span class="toc-number">2.1.</span> <span class="toc-text">下载及安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矿床统计预测数据实例"><span class="toc-number">2.2.</span> <span class="toc-text">矿床统计预测数据实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.</span> <span class="toc-text">结晶分异</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部分熔融"><span class="toc-number">2.</span> <span class="toc-text">部分熔融</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -368,7 +337,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/",
+  id: "http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/",
   owner: 'chengkaide',
   repo: 'chengkaide.github.io',
   oauth: {
