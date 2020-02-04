@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>R语言与地球化学数据处理 | 成凯得的博客</title>
+  <title>R语言安装与基本作图 | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="R语言与地球化学数据处理">
+  <meta name="description" content="R语言安装与基本作图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言与地球化学数据处理">
+<meta property="og:title" content="R语言安装与基本作图">
 <meta property="og:url" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="R语言与地球化学数据处理">
+<meta property="og:description" content="R语言安装与基本作图">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://uploads.cosx.org/2015/09/HadleyObama2.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/R%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png">
@@ -21,8 +21,13 @@
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%E4%B8%8D%E5%90%8C%E7%B3%BB%E7%BB%9F.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/3.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/%EF%BC%94.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/8.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/9.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/7.png">
 <meta property="article:published_time" content="2020-01-23T06:06:18.000Z">
-<meta property="article:modified_time" content="2020-01-25T03:15:06.137Z">
+<meta property="article:modified_time" content="2020-02-04T10:54:23.722Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://uploads.cosx.org/2015/09/HadleyObama2.png">
@@ -174,7 +179,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      R语言与地球化学数据处理
+      R语言安装与基本作图
     </h1>
   
 
@@ -187,25 +192,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="R语言与地球化学数据处理"><a href="#R语言与地球化学数据处理" class="headerlink" title="R语言与地球化学数据处理"></a>R语言与地球化学数据处理</h1><a id="more"></a>
-<h2 id="什么是R语言？"><a href="#什么是R语言？" class="headerlink" title="什么是R语言？"></a>什么是R语言？</h2><p>R语言是一种用于统计分析、绘图的语言和操作环境。R属于GNU系统（一个自由的操作系统）的免费、源代码开放的软件，用于统计计算及统计制图。</p>
+        <h1 id="R语言安装与基本作图"><a href="#R语言安装与基本作图" class="headerlink" title="R语言安装与基本作图"></a>R语言安装与基本作图</h1><a id="more"></a>
+<h2 id="什么是R语言？"><a href="#什么是R语言？" class="headerlink" title="什么是R语言？"></a>什么是R语言？</h2><p>R语言是一种用于统计分析、绘图的语言和操作环境。R属于GNU系统（一个自由的操作系统）的免费、源代码开放的软件，用于统计计算及统计制图。它是专门为统计而生的语言与环境，是由真正的统计学家开发的语言。如果真的要找一个与其类似的软件，那么应该是Matlab。但Matlab并不是为了统计而生。</p>
 <p>第一次接触R语言是在《矿床统计预测》课程上，跟随老师将软件下载，因为R相对于其他软件体量小，下载速度快而将其保留。后来才逐渐了解学习相关的知识并将其运用到实际数据处理之中。</p>
-<h2 id="为什么选择R语言？"><a href="#为什么选择R语言？" class="headerlink" title="为什么选择R语言？"></a>为什么选择R语言？</h2><p>对于科研经费有限，不能使用正版商业软件进行数据处理的穷苦学生党们，可供选择其实并不多。更为常见的是使用盗版软件。<br>但</p>
+<h2 id="为什么选择R语言？"><a href="#为什么选择R语言？" class="headerlink" title="为什么选择R语言？"></a>为什么选择R语言？</h2><p>对于科研经费有限，不能使用正版商业软件进行数据处理的学生党们，可供选择其实并不多。更为常见的是使用盗版软件。<br>但</p>
 <blockquote>
 <p>R是免费的(R is free)</p>
 </blockquote>
 <p>[学习R语言的理由]（<a href="https://www.burns-stat.com/documents/tutorials/why-use-the-r-language/）" target="_blank" rel="noopener">https://www.burns-stat.com/documents/tutorials/why-use-the-r-language/）</a></p>
 <p> 仅仅需要付出一些学习成本，便能享受R带有的所有功能。共享全球所有R包开发者的智慧结晶。<br>对比商业软件SPSS及SAS来说，R具有更明显的语言特征。并且与C语言语法类似，适合广大具有C语言基础的大学生群体学习和使用。</p>
 <h2 id="如何理解“包”"><a href="#如何理解“包”" class="headerlink" title="如何理解“包”"></a>如何理解“包”</h2><p>“包”是指利用R语言集合整理出各学科中经常利用的函数计算及图集函数集合。用户通过<code>install.packages(&quot;GCDkit&quot;)</code><br>命令安装GCDkit包（处理地球化学数据函数包），用以简化地球化学数据处理在R语言中的处理步骤</p>
-<h2 id="R数据处理常用包"><a href="#R数据处理常用包" class="headerlink" title="R数据处理常用包"></a>R数据处理常用包</h2><p>R 包是用于简化诸如整合和绘制数据等常见任务代码的编程工具。不同的学科有不同的数据处理需求，不同行业的R包开发者让R语言在多种领域均有杰出的表现。<br>因此，Ｒ数据统计处理及作图所需要的包不同，根据自己对数据的分析需求加载不同的函数包。<br>R语言的发展依赖于众多R包开发者的努力，其中Hadley Wickham推动了R语言的革命性演化。<br><img src="https://uploads.cosx.org/2015/09/HadleyObama2.png" alt="HW"><br>“ggplot2”常用的作图软件，强大的作图能力可以和众多商业软件相抗衡。</p>
+<h2 id="R数据处理常用包"><a href="#R数据处理常用包" class="headerlink" title="R数据处理常用包"></a>R数据处理常用包</h2><p>R 包是用于简化诸如整合和绘制数据等常见任务代码的编程工具。不同的学科有不同的数据处理需求，不同行业的R包开发者让R语言在多种领域均有杰出的表现。<br>因此，Ｒ数据统计处理及作图所需要的包不同，根据自己对数据的分析需求加载不同的函数包。<br>R语言的发展依赖于众多R包开发者的努力，其中Hadley Wickham推动了R语言的革命性演化。</p>
+<p><img src="https://uploads.cosx.org/2015/09/HadleyObama2.png" alt="HW"></p>
+<p>使用R语言绘制Hadley Wickham肖像</p>
+<p>Hadley Wickham开发的“ggplot2”常用的作图软件，强大的作图能力可以和众多商业软件相抗衡。不同图层绘图以及自定义选项众多，可以分步骤完成绘图，ggplot2使得R语言真正焕发生机。</p>
 <h1 id="下载安装R"><a href="#下载安装R" class="headerlink" title="下载安装R"></a>下载安装R</h1><h2 id="下载及安装步骤"><a href="#下载及安装步骤" class="headerlink" title="下载及安装步骤"></a>下载及安装步骤</h2><p>登陆网址 [R语言下载]<a href="https://www.r-project.org/" target="_blank" rel="noopener">https://www.r-project.org/</a><br>点击超链接进入网址，选择适合自身电脑系统的版本进行下载</p>
 <p><img src="R%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99.png" alt="网站界面"><br>点击<code>download R</code>选择离你最近的地理位置进行下载。CRAN mirror是指是为了方便世界各地的使用者下载R软件及相关软件包，在各地设置的镜像。各地的镜像都是R网站的备份文件，完全一样。所以，选择离你最近的镜像，你下载R软件或R包的速度相对较快。<br>这里选择清华大学镜像链接<br><img src="2.png" alt="选择链接"><br>点击<code>Download R for Windows</code>进行下载，如果是其他系统，点击其他链接即可。<br><img src="%E4%B8%8D%E5%90%8C%E7%B3%BB%E7%BB%9F.png" alt="不同系统"><br>点击<code>install R for the first time</code><img src="3.png" alt="安装R"><br>根据提示完成R语言安装，打开桌面快捷方式<br><img src="%EF%BC%94.png" alt="R界面">加载数据处理所需要的数据包</p>
+<blockquote>
+<p>小贴士：上方向键可以调用写过的语句，对其进行修改执行，效率翻倍</p>
+</blockquote>
+<h1 id="常用绘图命令"><a href="#常用绘图命令" class="headerlink" title="常用绘图命令"></a>常用绘图命令</h1><h2 id="低水平图绘制（点、线、箱形图、直方图）"><a href="#低水平图绘制（点、线、箱形图、直方图）" class="headerlink" title="低水平图绘制（点、线、箱形图、直方图）"></a>低水平图绘制（点、线、箱形图、直方图）</h2><h3 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set.seed(1234) #setseed函数生成随机数标记，括号内的数字保证每次使用这些随机数不变，1234不参与计算</span><br><span class="line">X &lt;- sample(1:100,80,replace&#x3D;FALSE) #从1至100中随机出80个数，replace表示抽取的数不会再次被抽取，将随机数赋给x</span><br><span class="line">Y &lt;- 2*x+20 + rnorm(80,0,10) #rnorm函数表示从平均数为0，标准差为10的正态分布数集中抽取80个数</span><br><span class="line">plot(x&#x3D;X,y&#x3D;Y,xlab&#x3D;&quot;温度&quot;,ylab&#x3D;&quot;压力&quot;,main&#x3D;&quot;温度压力散点图&quot;) #投图xlab横坐标名称，ylab纵坐标名称，main图名</span><br></pre></td></tr></table></figure>
+<p><img src="5.png" alt="散点图"><br>当然这样的散点图还不足以达到科研文章中的水平，需要使用plot中其他选项进一步优化。</p>
+<h3 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set.seed(1) #设置随机数</span><br><span class="line">t &lt;- 1:100 #时间点设计为1至100</span><br><span class="line">v &lt;- rnorm(100,0,10) #如散点图数据选取</span><br><span class="line">plot(t,v,type&#x3D;&quot;l&quot;) #plot中type选项默认为散点图，填写“l”表明直线模式</span><br></pre></td></tr></table></figure>
+<p><img src="6.png" alt="折线图"></p>
+<h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- quakes$depth</span><br><span class="line">hist(x,col&#x3D;&quot;red&quot;,border&#x3D;&quot;black&quot;,labels&#x3D;TRUE,ylim&#x3D;c(0,200))</span><br></pre></td></tr></table></figure>
+<p><img src="8.png" alt="柱状图"></p>
+<h3 id="箱形图"><a href="#箱形图" class="headerlink" title="箱形图"></a>箱形图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boxplot(quakes$depth)</span><br></pre></td></tr></table></figure>
+<p><img src="9.png" alt="箱形图"></p>
+<h3 id="饼状图"><a href="#饼状图" class="headerlink" title="饼状图"></a>饼状图</h3><p>引用函数包plotrix中pie3D绘制立体饼状图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(plotrix)</span><br><span class="line">x &lt;- c(20,50,60,30)</span><br><span class="line">pie3D(x)</span><br></pre></td></tr></table></figure>
+<p>输入<code>help(pie3D)</code>查看相关函数具体要求修改命令，添加标签<br>利用其例说明其使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pieval&lt;-c(2,4,6,8)</span><br><span class="line"> pielabels&lt;-</span><br><span class="line">  c(&quot;We hate\n pies&quot;,&quot;We oppose\n  pies&quot;,&quot;We don&#39;t\n  care&quot;,&quot;We just love pies&quot;)</span><br><span class="line"> # grab the radial positions of the labels</span><br><span class="line"> lp&lt;-pie3D(pieval,radius&#x3D;0.9,labels&#x3D;pielabels,explode&#x3D;0.1,main&#x3D;&quot;3D PIE OPINIONS&quot;)</span><br><span class="line"> # lengthen the last label and move it to the left</span><br><span class="line"> pielabels[4]&lt;-&quot;We cannot survive without our pies&quot;</span><br><span class="line"> lp[4]&lt;-4.8</span><br><span class="line"> # specify some new colors</span><br><span class="line"> pie3D(pieval,radius&#x3D;0.9,labels&#x3D;pielabels,explode&#x3D;0.1,main&#x3D;&quot;3D PIE OPINIONS&quot;,</span><br><span class="line">  col&#x3D;c(&quot;brown&quot;,&quot;#ddaa00&quot;,&quot;pink&quot;,&quot;#dd00dd&quot;),labelpos&#x3D;lp)</span><br></pre></td></tr></table></figure>
+<p><img src="7.png" alt="饼状图"></p>
+<p>除了使用随机数或函数提供的数据进行画图测试之外，R语言还自带一些数据集，可使用<code>data()</code>查看载入函数包数据集或<code>data(package = .packages(all.available = TRUE))</code>命令查看所有可用函数包中的数据集<br>其中包括很多适用于常规测试作图的数据集：[数据集总结]<a href="https://blog.csdn.net/yjz_sdau/article/details/51510294" target="_blank" rel="noopener">https://blog.csdn.net/yjz_sdau/article/details/51510294</a> 利用这些数据集可以很好的检验作图准确性及函数功能。</p>
+<blockquote>
+<p>小贴士：命令行窗口清空快捷键 ctrl+L</p>
+</blockquote>
+<blockquote>
+<p>小贴士：?+数据集名称 会展示数据集含义及来源</p>
+</blockquote>
+<h2 id="使用ggplot2作图"><a href="#使用ggplot2作图" class="headerlink" title="使用ggplot2作图"></a>使用ggplot2作图</h2><p><code>library(ggplot2)</code><br>调用ggplot2函数包<br>使用<code>?diamonds</code>命令来查看diamonds数据集具体内容，自行转向浏览器查看内容Prices of 50,000 round cut diamonds</p>
 <h2 id="矿床统计预测数据实例"><a href="#矿床统计预测数据实例" class="headerlink" title="矿床统计预测数据实例"></a>矿床统计预测数据实例</h2><p>在中国地质大学（武汉）资源学院开办的矿床统计预测课程学习过程中，多利用Excel来达到最终课程作业目的。但是实际上在完成作业后，日后阅读过程中很多细节在Excel表格中不能清晰体现出来。所以我利用R语言中的一些功能来完成相应的数据处理。</p>
 <blockquote>
 <p>　马尔科夫链分析岩石地层剖面</p>
 </blockquote>
+<p>利用带有马尔科夫过程的函数包，</p>
 <p>来源于维基百科<br>马尔可夫链（英语：Markov chain），又称离散时间马尔可夫链（discrete-time Markov chain，缩写为DTMC），因俄国数学家安德烈·马尔可夫（俄语：Андрей Андреевич Марков）得名，为状态空间中经过从一个状态到另一个状态的转换的随机过程。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34834744&auto=1&height=66"></iframe>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1] R语言 作者：刘鹏、张燕、程显毅、刘颖、朱倩 出版社：清华大学出版社 出版日期： 2019-01-01</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=34834744&auto=1&height=66"></iframe>
 
 
       
@@ -343,7 +377,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#R语言与地球化学数据处理"><span class="toc-number">1.</span> <span class="toc-text">R语言与地球化学数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是R语言？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选择R语言？"><span class="toc-number">1.2.</span> <span class="toc-text">为什么选择R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何理解“包”"><span class="toc-number">1.3.</span> <span class="toc-text">如何理解“包”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R数据处理常用包"><span class="toc-number">1.4.</span> <span class="toc-text">R数据处理常用包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载安装R"><span class="toc-number">2.</span> <span class="toc-text">下载安装R</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载及安装步骤"><span class="toc-number">2.1.</span> <span class="toc-text">下载及安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矿床统计预测数据实例"><span class="toc-number">2.2.</span> <span class="toc-text">矿床统计预测数据实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#R语言安装与基本作图"><span class="toc-number">1.</span> <span class="toc-text">R语言安装与基本作图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是R语言？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选择R语言？"><span class="toc-number">1.2.</span> <span class="toc-text">为什么选择R语言？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何理解“包”"><span class="toc-number">1.3.</span> <span class="toc-text">如何理解“包”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R数据处理常用包"><span class="toc-number">1.4.</span> <span class="toc-text">R数据处理常用包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载安装R"><span class="toc-number">2.</span> <span class="toc-text">下载安装R</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载及安装步骤"><span class="toc-number">2.1.</span> <span class="toc-text">下载及安装步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用绘图命令"><span class="toc-number">3.</span> <span class="toc-text">常用绘图命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#低水平图绘制（点、线、箱形图、直方图）"><span class="toc-number">3.1.</span> <span class="toc-text">低水平图绘制（点、线、箱形图、直方图）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#散点图"><span class="toc-number">3.1.1.</span> <span class="toc-text">散点图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#折线图"><span class="toc-number">3.1.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#柱状图"><span class="toc-number">3.1.3.</span> <span class="toc-text">柱状图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箱形图"><span class="toc-number">3.1.4.</span> <span class="toc-text">箱形图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饼状图"><span class="toc-number">3.1.5.</span> <span class="toc-text">饼状图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用ggplot2作图"><span class="toc-number">3.2.</span> <span class="toc-text">使用ggplot2作图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矿床统计预测数据实例"><span class="toc-number">3.3.</span> <span class="toc-text">矿床统计预测数据实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
