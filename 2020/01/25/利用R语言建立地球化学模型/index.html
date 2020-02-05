@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>利用R语言建立地球化学模型 | 成凯得的博客</title>
+  <title>R语言（二） | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
+  <meta name="description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用R语言建立地球化学模型">
+<meta property="og:title" content="R语言（二）">
 <meta property="og:url" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
+<meta property="og:description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
 <meta property="article:published_time" content="2020-01-25T03:16:55.000Z">
-<meta property="article:modified_time" content="2020-01-27T10:20:22.132Z">
+<meta property="article:modified_time" content="2020-02-05T14:11:45.165Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      利用R语言建立地球化学模型
+      R语言（二）
     </h1>
   
 
@@ -182,16 +182,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。</p>
+        <h1 id="地球化学建模"><a href="#地球化学建模" class="headerlink" title="地球化学建模"></a>地球化学建模</h1><p>本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。</p>
 <a id="more"></a>
-
-<blockquote>
+<p>地球化学建模的关键假设是地球化学过程发生在封闭环境下。这代表系统与外界没有物质交换，但有能量交换。假设无物质交换，才可以使用质量守恒公式搭建模型。</p>
+<h2 id="结晶过程中的质量守恒"><a href="#结晶过程中的质量守恒" class="headerlink" title="结晶过程中的质量守恒"></a>结晶过程中的质量守恒</h2><blockquote>
 <p>运用到的数学知识:最小二乘法</p>
 </blockquote>
 <p>最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求得的数据与实际数据之间误差的平方和为最小。最小二乘法还可用于曲线拟合。其他一些优化问题也可通过最小化能量或最大化熵用最小二乘法来表达（百度百科）。</p>
+<p>要说清楚最小二乘法，要提到线性代数中的一些概念。<br>常见的<br>超定方程组的含义是超定方程组是指方程个数大于未知量个数的方程组。对于方程组Ra=y，R为n×m矩阵，如果R列满秩，且n&gt;m。则方程组没有精确解，此时称方程组为超定方程组。</p>
 <p><a href="http://book.gcdkit.org/" target="_blank" rel="noopener">数据来源下载</a><br><img src="%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png" alt="数据下载界面"><br>对应数据下载，或是将所有数据下载</p>
 <p>将数据放入R语言目前工作目录之中，或临时更换工作目录至数据所在位置</p>
-<h1 id="结晶分异"><a href="#结晶分异" class="headerlink" title="结晶分异"></a>结晶分异</h1><p>wt. % basalt olivine<br>SiO2 45.15 40.87<br>TiO2 1.4 0.00<br>Al2O3 7.51 0.00<br>FeO 11.97 9.77<br>MgO 25.34 49.35<br>CaO 6.68 0.00<br>Na2O 1.18 0.00</p>
+<h2 id="结晶分异"><a href="#结晶分异" class="headerlink" title="结晶分异"></a>结晶分异</h2><p>wt. % basalt olivine<br>SiO2 45.15 40.87<br>TiO2 1.4 0.00<br>Al2O3 7.51 0.00<br>FeO 11.97 9.77<br>MgO 25.34 49.35<br>CaO 6.68 0.00<br>Na2O 1.18 0.00</p>
 <p>数据原始文献：Matzen AK, Baker MB, Beckett JR, Stolper EM (2011) Fe–Mg partitioning between olivine and<br>high-magnesian melts and the nature of Hawaiian parental liquids. J Petrol 52:1243–1263</p>
 <p><a href="https://watermark.silverchair.com/egq089.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAAmwwggJoBgkqhkiG9w0BBwagggJZMIICVQIBADCCAk4GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMTRc81_lES_lTVx4FAgEQgIICH5L_nJeRvwKiSVKSCpEwMbGqgGQ8p2sP-97r8ilET8XcVsIYjbaBElCjxKcdIKnvafyHtwc9gRP44rOndKYo_yEb7HEazDbQBTctNDBmv0HpjbR1M9zlTUUIqzXZ1UGM1y3nYpG4nanfyOF94snElaixC0iBkkMF0VEvrnCY5UA7xeHzCFUySDRccUs2wsHO5KXVOF1BQfF2AlFv9Bws26zroR-69QS4XHhXl-bGgDHP6JjihTGgk9rMx1_ejlg_FXEeraDjRSGEeHRBA5U-VKzxmm5f8pkW-a52VMs5eGraLhQzR_gjAycyZis9ELvCUHIAK50QZtgsbzp7A35IsMoJ6MKxbCpebwXzocQixIXfFNpW3QSDVNEOzi7eYWturzPsHQTdTTGXCpP5QY0JvmbKJZuILmylmoiJ6dpuEcgPqfraBHqLpe6ZxToOfzDN67D2NQ9mrOkdJ_a_EdNnFoPbg4fNjmL3GPCeFBjCtdYRE1UnD9aJiSXnHUkEzeo-T2XR5mtQ6CLbatBgRmib1vo4lPcDQMpecqxw062d6uJA77hcWuGiQrli4NdkJGtyHuwSYzP4vt3et8fyGkj5OyRkFKsBHPrLY357ByN0khVMy56YHytJQ2T4YEACoUJoh22_EYLxHh_wXVvMFc3InLt0dtC76qxnL4nhAGAi5pTx5gURdGGxnRU6INQA2Ju9SqYNmPH1DmGW2BcTf5GdLg" target="_blank" rel="noopener">下载链接</a></p>
 <blockquote>
@@ -326,7 +327,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.</span> <span class="toc-text">结晶分异</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部分熔融"><span class="toc-number">2.</span> <span class="toc-text">部分熔融</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地球化学建模"><span class="toc-number">1.</span> <span class="toc-text">地球化学建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶过程中的质量守恒"><span class="toc-number">1.1.</span> <span class="toc-text">结晶过程中的质量守恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.2.</span> <span class="toc-text">结晶分异</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部分熔融"><span class="toc-number">2.</span> <span class="toc-text">部分熔融</span></a></li></ol>
                     </div>
                 </span>
             </div>

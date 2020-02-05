@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>R语言安装与基本作图 | 成凯得的博客</title>
+  <title>R语言（一） | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="R语言安装与基本作图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言安装与基本作图">
+<meta property="og:title" content="R语言（一）">
 <meta property="og:url" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="成凯得的博客">
 <meta property="og:description" content="R语言安装与基本作图">
@@ -26,8 +26,11 @@
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/8.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/9.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/10.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/11.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/12.png">
 <meta property="article:published_time" content="2020-01-23T06:06:18.000Z">
-<meta property="article:modified_time" content="2020-02-04T10:54:23.722Z">
+<meta property="article:modified_time" content="2020-02-04T11:38:51.079Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://uploads.cosx.org/2015/09/HadleyObama2.png">
@@ -179,7 +182,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      R语言安装与基本作图
+      R语言（一）
     </h1>
   
 
@@ -231,7 +234,14 @@
 <blockquote>
 <p>小贴士：?+数据集名称 会展示数据集含义及来源</p>
 </blockquote>
-<h2 id="使用ggplot2作图"><a href="#使用ggplot2作图" class="headerlink" title="使用ggplot2作图"></a>使用ggplot2作图</h2><p><code>library(ggplot2)</code><br>调用ggplot2函数包<br>使用<code>?diamonds</code>命令来查看diamonds数据集具体内容，自行转向浏览器查看内容Prices of 50,000 round cut diamonds</p>
+<h2 id="使用ggplot2作图"><a href="#使用ggplot2作图" class="headerlink" title="使用ggplot2作图"></a>使用ggplot2作图</h2><p>调用ggplot2函数包<br>使用<code>?diamonds</code>命令来查看diamonds数据集具体内容，自行转向浏览器查看内容Prices of 50,000 round cut diamonds</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dsmall &#x3D; diamonds[sample(nrow(diamonds),200),]</span><br><span class="line">View(dsmall)</span><br></pre></td></tr></table></figure>
+
+<p><img src="10.png" alt="显示数据"></p>
+<p>qplot(carat,price,data=dsmall,colour = color)</p>
+<p><img src="11.png" alt="显示数据"></p>
+<p>qplot(carat,data=diamonds,geom = “histogram”,colour = color,fill=color</p>
+<p><img src="12.png" alt="显示数据柱状图"></p>
 <h2 id="矿床统计预测数据实例"><a href="#矿床统计预测数据实例" class="headerlink" title="矿床统计预测数据实例"></a>矿床统计预测数据实例</h2><p>在中国地质大学（武汉）资源学院开办的矿床统计预测课程学习过程中，多利用Excel来达到最终课程作业目的。但是实际上在完成作业后，日后阅读过程中很多细节在Excel表格中不能清晰体现出来。所以我利用R语言中的一些功能来完成相应的数据处理。</p>
 <blockquote>
 <p>　马尔科夫链分析岩石地层剖面</p>
