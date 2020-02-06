@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>R语言（二） | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
+  <meta name="description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。书籍中提到的模型，利用Matlab同样可以建立。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R语言（二）">
 <meta property="og:url" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。">
+<meta property="og:description" content="地球化学建模本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。书籍中提到的模型，利用Matlab同样可以建立。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
 <meta property="article:published_time" content="2020-01-25T03:16:55.000Z">
-<meta property="article:modified_time" content="2020-02-05T14:11:45.165Z">
+<meta property="article:modified_time" content="2020-02-06T02:28:47.362Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
@@ -182,14 +182,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="地球化学建模"><a href="#地球化学建模" class="headerlink" title="地球化学建模"></a>地球化学建模</h1><p>本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。</p>
+        <h1 id="地球化学建模"><a href="#地球化学建模" class="headerlink" title="地球化学建模"></a>地球化学建模</h1><p>本文主要是对Geochemical Modelling of Igneous Processes–Principles And Recipes in R Language书籍的学习，结合搜集来的文献资料进行处理与解释。书籍中提到的模型，利用Matlab同样可以建立。</p>
 <a id="more"></a>
 <p>地球化学建模的关键假设是地球化学过程发生在封闭环境下。这代表系统与外界没有物质交换，但有能量交换。假设无物质交换，才可以使用质量守恒公式搭建模型。</p>
 <h2 id="结晶过程中的质量守恒"><a href="#结晶过程中的质量守恒" class="headerlink" title="结晶过程中的质量守恒"></a>结晶过程中的质量守恒</h2><blockquote>
 <p>运用到的数学知识:最小二乘法</p>
 </blockquote>
 <p>最小二乘法（又称最小平方法）是一种数学优化技术。它通过最小化误差的平方和寻找数据的最佳函数匹配。利用最小二乘法可以简便地求得未知的数据，并使得这些求得的数据与实际数据之间误差的平方和为最小。最小二乘法还可用于曲线拟合。其他一些优化问题也可通过最小化能量或最大化熵用最小二乘法来表达（百度百科）。</p>
-<p>要说清楚最小二乘法，要提到线性代数中的一些概念。<br>常见的<br>超定方程组的含义是超定方程组是指方程个数大于未知量个数的方程组。对于方程组Ra=y，R为n×m矩阵，如果R列满秩，且n&gt;m。则方程组没有精确解，此时称方程组为超定方程组。</p>
+<p>要说清楚最小二乘法，要提到线性代数中的一些概念。<br>常见的方程组需求解的未知量x的数量与独立方程数量相同。<br>x的系数矩阵为方阵，线性代数求解方程组方式有两种，利用克拉默法则或使用逆矩阵方法求解。</p>
+<p>但对于所需求解未知量x的数量小于给定独立方程数量的方程组（也就是超定方程组）来说，x的系数矩阵不是方阵，无法求逆。不能准确求出对应未知量。只会有相应的估计值。那什么样的估计值才达到要求呢？答案就是当估计值对应的常数项矩阵与原始常数项矩阵差值平方达到最小，那么这些估计值就是最好的。（以上仅是对线性方程组的理解）</p>
+<p>原始常数项矩阵差值平法达到最小的原则就是最小二乘法。</p>
+<p>超定方程组的含义是超定方程组是指方程个数大于未知量个数的方程组。对于方程组Ra=y，R为n×m矩阵，如果R列满秩，且n&gt;m。则方程组没有精确解，此时称方程组为超定方程组。</p>
+<blockquote>
+<p>如何求最小二乘解？</p>
+</blockquote>
+<p>类似于求解方程组的逆矩阵方法，但是此时由超定方程组求出的逆矩阵是伪逆矩阵。<br>伪逆矩阵的求法即是将[系数矩阵的转置矩阵乘系数矩阵]求其逆矩阵，再乘[系数矩阵的转置矩阵],如图所示<br>当然几何上的理解就是在多维空间内中的点至多条直线间距离之和达到最小。</p>
 <p><a href="http://book.gcdkit.org/" target="_blank" rel="noopener">数据来源下载</a><br><img src="%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png" alt="数据下载界面"><br>对应数据下载，或是将所有数据下载</p>
 <p>将数据放入R语言目前工作目录之中，或临时更换工作目录至数据所在位置</p>
 <h2 id="结晶分异"><a href="#结晶分异" class="headerlink" title="结晶分异"></a>结晶分异</h2><p>wt. % basalt olivine<br>SiO2 45.15 40.87<br>TiO2 1.4 0.00<br>Al2O3 7.51 0.00<br>FeO 11.97 9.77<br>MgO 25.34 49.35<br>CaO 6.68 0.00<br>Na2O 1.18 0.00</p>
@@ -200,7 +207,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- read.table(&quot;MaunaKea.data&quot;sep&#x3D;&quot;\t&quot;) #读取数据</span><br><span class="line">c0 &lt;- x[,1] #将第一列数据赋给c0</span><br><span class="line">ol &lt;- x[,2] #将第二列数据赋给ol</span><br><span class="line">fc &lt;- c(0.05,0.1,0.2,0.35) #不同的分离结晶程度赋给fc</span><br><span class="line">for (ee in fc)&#123;</span><br><span class="line">y &lt;- (c0-ol*ee)&#x2F;(1-ee) </span><br><span class="line">x &lt;- cbind(x,y)</span><br><span class="line">&#125; </span><br><span class="line">#for循环将fc中的数代入后，将得到的向量与x拼合</span><br><span class="line">colnames(x) &lt;- c(&quot;C0&quot;,&quot;Ol&quot;,fc) #列名设为原列名以及fc数值</span><br><span class="line">print(round(x,2)) #输出四舍五入保留两位小数</span><br></pre></td></tr></table></figure>
 
-<h1 id="部分熔融"><a href="#部分熔融" class="headerlink" title="部分熔融"></a>部分熔融</h1>
+<h2 id="部分熔融"><a href="#部分熔融" class="headerlink" title="部分熔融"></a>部分熔融</h2>
       
 
       
@@ -300,7 +307,7 @@
   
   
     <a href="/2020/01/24/post-name/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">post_name</div>
+      <div class="article-nav-title">岩石薄片</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地球化学建模"><span class="toc-number">1.</span> <span class="toc-text">地球化学建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶过程中的质量守恒"><span class="toc-number">1.1.</span> <span class="toc-text">结晶过程中的质量守恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.2.</span> <span class="toc-text">结晶分异</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#部分熔融"><span class="toc-number">2.</span> <span class="toc-text">部分熔融</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地球化学建模"><span class="toc-number">1.</span> <span class="toc-text">地球化学建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶过程中的质量守恒"><span class="toc-number">1.1.</span> <span class="toc-text">结晶过程中的质量守恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.2.</span> <span class="toc-text">结晶分异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分熔融"><span class="toc-number">1.3.</span> <span class="toc-text">部分熔融</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
