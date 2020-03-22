@@ -16,7 +16,7 @@
 <meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T14:57:57.735Z">
+<meta property="article:modified_time" content="2020-03-22T15:15:33.696Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
   
@@ -207,15 +207,11 @@
 <p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}$$</p>
 </blockquote>
 <p>第i种元素的检出限即为</p>
-<p>$$LOD_i^{SAMP}=3\sigma_i^{BG}\sqrt{\frac{1}{N_{BG}}+\frac{1}{N_{SAMP}}}<em>\frac{1}{RSF}</em>\frac{C_i^{STD}}{I_i^{STD}}$$</p>
+<p>$LOD_i^{SAMP}=3\sigma_i^{BG}\sqrt{\frac1{N_{BG}}+\frac1{N_{SAMP}}}<em>\frac1{RSF}</em>\frac{C_i^{STD}}{I_i^{STD}}$</p>
 <p>其中$\sigma_i^{BG}$是背景的不确定度（单位为cps）；$N_{BG}$和$N_{SAMP}$分别是背景及样品信号的检测器周期数量；$RSF^{SAMP}$是样品相对于标准样品的相对灵敏度。</p>
-<blockquote>
-<p>$$RSF^{SAMP}=\frac{C_{is}^{STD}<em>I_{is}^{SAMP}}{I_{is}^{STD}</em>C_{is}^{SAMP}}$$</p>
-</blockquote>
+<p>$RSF^{SAMP}=\frac{C_{is}^{STD}<em>I_{is}^{SAMP}}{I_{is}^{STD}</em>C_{is}^{SAMP}}$</p>
 <p>或者</p>
-<blockquote>
-<p>$$RSF^{SAMP}=\xi_i^{is}<em>\frac{C_{is}^{STD}</em>I_{is}^{SAMP}}{I_{is}^{STD}*C_{is}^{SAMP}}$$</p>
-</blockquote>
+<p>$RSF^{SAMP}=\xi_i^{is}<em>\frac{C_{is}^{STD}</em>I_{is}^{SAMP}}{I_{is}^{STD}*C_{is}^{SAMP}}$</p>
 <h2 id="复杂信号（主矿物-流体包裹体）"><a href="#复杂信号（主矿物-流体包裹体）" class="headerlink" title="复杂信号（主矿物+流体包裹体）"></a>复杂信号（主矿物+流体包裹体）</h2><p>图中显示了一个典型的瞬态LA-ICP-MS信号，其中适用于主矿物校正。信号可分解为3个基本信号:气体空白信号(SIG1)、主矿物信号(SIG2)和包裹体信号(SIG3)。给定SIG的强度可以为单个信号的线性组合:</p>
 <p>$I_i^{SIG1}=I_i^{BG}$</p>
 <p>$I_i^{SIG2}=I_i^{BG}+I_i^{HOST,SIG1}$</p>
@@ -223,10 +219,16 @@
 <p>其中$I_i^{BG}$是元素i在背景中的信号强度；<br>$I_i^{HOST}$是设定时间间隔中主矿物的信号强度；<br>$I_i^{SAMP}$是流体包裹体也就是样品的信号强度，也可以用下式表示：<br>$I_i^{MIX}=I_i^{SIG3}-I_i^{BG}=I_i^{HOST,SIG3}+I_i^{SAMP}$</p>
 <p>原则上，主矿物信号可以由几部分组成，流体包裹体信号前及信号后的时间段。SILLS软件为主矿物选择至多两段，包裹体信号至多选择三段。</p>
 <blockquote>
-<p>注意：我们需要的是流体包裹体中的元素含量</p>
+<p>注意：我们需要的是流体包裹体中的元素含量$C_i^{SAMP}$</p>
 </blockquote>
 <p>为了确定流体包裹体中i元素的含量，必须要定义流体包裹体与主矿物混合的比例。<br>因此，我们定义x为流体包裹体在剥蚀物（包含主矿物及流体包裹体）中的质量分数。</p>
 <p>$$x=\frac{m^{SAMP}}{m^{MIX}}=\frac{C_i^{SAMP}-C_i^{MIX}}{C_i^{SAMP}-C_i^{SAMP}}$$</p>
+<p>对上式进行移项，可以表达流体包裹体中元素含量$C_i^{SAMP}$</p>
+<p>$$C_i^{SAMP}=(1-\frac1{x})<em>C_i^{HOST}+(\frac1{x})</em>C_i^{MIX}$$(a式)</p>
+<p>主矿物中i元素含量及混合i元素含量分别可以表达为：</p>
+<p>$$C_i^{HOST}=\frac{I_i^{HOST}}{RSF^{HOST}}=\frac{(I_i^{SIG2}-I_i^{SIG1})}{RSF^{HOST}}$$(b式)</p>
+<p>$$C_i^{MIX}=\frac{I_i^{MIX}}{RSF^{MIX}}=\frac{(I_i^{SIG3}-I_i^{SIG1})}{RSF^{MIX}}$$(c式)</p>
+<p>将(b式)(c式)代入(a式)可得</p>
 
       
 
