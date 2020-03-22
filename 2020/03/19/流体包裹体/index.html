@@ -16,7 +16,7 @@
 <meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T15:15:33.696Z">
+<meta property="article:modified_time" content="2020-03-22T15:54:22.043Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
   
@@ -204,7 +204,7 @@
 </blockquote>
 <p>以上公式用来计算第i种元素的校正系数，$\xi_i^{is}$就是相对于内标is(internal standard)第i种元素的分析精度(计数与真实含量比值$cps/ppm$）。<br>利用这样一个参数$\xi_i^{is}$，我们可以将测量的样品强度比值转化为含量（在内标含量已知的情况下）。</p>
 <blockquote>
-<p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}$$</p>
+<p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}\text {，关键等式，后面还会提及}$$</p>
 </blockquote>
 <p>第i种元素的检出限即为</p>
 <p>$LOD_i^{SAMP}=3\sigma_i^{BG}\sqrt{\frac1{N_{BG}}+\frac1{N_{SAMP}}}<em>\frac1{RSF}</em>\frac{C_i^{STD}}{I_i^{STD}}$</p>
@@ -229,6 +229,18 @@
 <p>$$C_i^{HOST}=\frac{I_i^{HOST}}{RSF^{HOST}}=\frac{(I_i^{SIG2}-I_i^{SIG1})}{RSF^{HOST}}$$(b式)</p>
 <p>$$C_i^{MIX}=\frac{I_i^{MIX}}{RSF^{MIX}}=\frac{(I_i^{SIG3}-I_i^{SIG1})}{RSF^{MIX}}$$(c式)</p>
 <p>将(b式)(c式)代入(a式)可得</p>
+<p>$$C_i^{SAMP}=\frac{C_i^{STD}}{I_i^{STD}}* \left( \frac{I_i^{SIG2}-I_i^{SIG1}}{RSF^{HOST}}<em>(1-\frac1{x})+ \frac{(I_i^{SIG3}-I_i^{SIG1})}{x</em>RSF^{MIX}}\right)$$(d式)</p>
+<p>如果要将(d式)用$\xi_i^{is}$来表达：</p>
+<p>$$C_i^{SAMP}=\left( \frac{C_{is}^{HOST}}{I_{is}^{HOST}}* \left( \frac{I_i^{SIG2}-I_i^{SIG1}}{\xi_i^{is}}<em>(1-\frac1{x})+ \left(\frac{C_{is}^{MIX}}{I_{is}^{MIX}}</em>\frac{(I_i^{SIG3}-I_i^{SIG1})}{x*\xi_i^{is}}\right)\right)\right)$$</p>
+<p>如果没有主矿物信号$I_i^{SIG2}=0$；<br>流体包裹体占整体质量分数为$x=1$；<br>此时$I_i^{MIX}=I_i^{SAMP}$；<br>此时，可以将公式又简化为前文提到过的关键公式：</p>
+<p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}\text {，关键公式}$$</p>
+<h2 id="流体包裹体质量分数x如何得到"><a href="#流体包裹体质量分数x如何得到" class="headerlink" title="流体包裹体质量分数x如何得到"></a>流体包裹体质量分数x如何得到</h2><p>前文中定义的变量中还有X不能直接得到结果，我们需要利用主矿物与流体包裹体中的差异。</p>
+<p>如果元素t在主矿物中存在，而不存在于流体包裹体中，那么我们可以对SIG3（主矿物+流体包裹体）相对于SIG2（主矿物）定义比值RI：</p>
+<p>$$RI=\frac{I_i^{HOST,SIG3}}{I_i^{HOST,SIG2}}=\frac{I_t^{HOST,SIG3}}{I_t^{HOST,SIG2}}$$</p>
+<p>已知t元素流体包裹体中不存在：</p>
+<p>$$I_t^{SAMP}=0$$</p>
+<p>并且因此：</p>
+<p>$$I_t^{HOST,SIG3}=I_t^{MIX}$$</p>
 
       
 
@@ -356,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.</span> <span class="toc-text">术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理解原理基础知识"><span class="toc-number"></span> <span class="toc-text">理解原理基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式计算"><span class="toc-number"></span> <span class="toc-text">公式计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单一信号"><span class="toc-number">1.</span> <span class="toc-text">单一信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂信号（主矿物-流体包裹体）"><span class="toc-number">2.</span> <span class="toc-text">复杂信号（主矿物+流体包裹体）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.</span> <span class="toc-text">术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理解原理基础知识"><span class="toc-number"></span> <span class="toc-text">理解原理基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式计算"><span class="toc-number"></span> <span class="toc-text">公式计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单一信号"><span class="toc-number">1.</span> <span class="toc-text">单一信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂信号（主矿物-流体包裹体）"><span class="toc-number">2.</span> <span class="toc-text">复杂信号（主矿物+流体包裹体）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流体包裹体质量分数x如何得到"><span class="toc-number">3.</span> <span class="toc-text">流体包裹体质量分数x如何得到</span></a></li></ol>
                     </div>
                 </span>
             </div>
