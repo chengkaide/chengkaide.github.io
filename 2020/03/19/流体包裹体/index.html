@@ -16,7 +16,7 @@
 <meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-22T14:48:22.105Z">
+<meta property="article:modified_time" content="2020-03-22T14:57:57.735Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
   
@@ -207,13 +207,15 @@
 <p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}$$</p>
 </blockquote>
 <p>第i种元素的检出限即为</p>
-<blockquote>
 <p>$$LOD_i^{SAMP}=3\sigma_i^{BG}\sqrt{\frac{1}{N_{BG}}+\frac{1}{N_{SAMP}}}<em>\frac{1}{RSF}</em>\frac{C_i^{STD}}{I_i^{STD}}$$</p>
-</blockquote>
 <p>其中$\sigma_i^{BG}$是背景的不确定度（单位为cps）；$N_{BG}$和$N_{SAMP}$分别是背景及样品信号的检测器周期数量；$RSF^{SAMP}$是样品相对于标准样品的相对灵敏度。</p>
+<blockquote>
 <p>$$RSF^{SAMP}=\frac{C_{is}^{STD}<em>I_{is}^{SAMP}}{I_{is}^{STD}</em>C_{is}^{SAMP}}$$</p>
+</blockquote>
 <p>或者</p>
+<blockquote>
 <p>$$RSF^{SAMP}=\xi_i^{is}<em>\frac{C_{is}^{STD}</em>I_{is}^{SAMP}}{I_{is}^{STD}*C_{is}^{SAMP}}$$</p>
+</blockquote>
 <h2 id="复杂信号（主矿物-流体包裹体）"><a href="#复杂信号（主矿物-流体包裹体）" class="headerlink" title="复杂信号（主矿物+流体包裹体）"></a>复杂信号（主矿物+流体包裹体）</h2><p>图中显示了一个典型的瞬态LA-ICP-MS信号，其中适用于主矿物校正。信号可分解为3个基本信号:气体空白信号(SIG1)、主矿物信号(SIG2)和包裹体信号(SIG3)。给定SIG的强度可以为单个信号的线性组合:</p>
 <p>$I_i^{SIG1}=I_i^{BG}$</p>
 <p>$I_i^{SIG2}=I_i^{BG}+I_i^{HOST,SIG1}$</p>
