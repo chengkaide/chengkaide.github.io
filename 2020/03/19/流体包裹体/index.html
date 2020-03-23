@@ -16,7 +16,7 @@
 <meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-23T02:46:44.932Z">
+<meta property="article:modified_time" content="2020-03-23T02:52:49.999Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
   
@@ -224,16 +224,16 @@
 <p>为了确定流体包裹体中i元素的含量，必须要定义流体包裹体与主矿物混合的比例。<br>因此，我们定义x为流体包裹体在剥蚀物（包含主矿物及流体包裹体）中的质量分数。</p>
 <p>$$x=\frac{m^{SAMP}}{m^{MIX}}=\frac{C_i^{SAMP}-C_i^{MIX}}{C_i^{SAMP}-C_i^{SAMP}}$$</p>
 <p>对上式进行移项，可以表达流体包裹体中元素含量$C_i^{SAMP}$</p>
-<p>$$C_i^{SAMP}=(1-\frac1{x})<em>C_i^{HOST}+(\frac1{x})</em>C_i^{MIX}$$(a式)</p>
+<p>$$C_i^{SAMP}=(1-\frac1{x})×C_i^{HOST}+(\frac1{x})×C_i^{MIX}\text {，(a式)}$$</p>
 <p>主矿物中i元素含量及混合i元素含量分别可以表达为：</p>
-<p>$$C_i^{HOST}=\frac{I_i^{HOST}}{RSF^{HOST}}=\frac{(I_i^{SIG2}-I_i^{SIG1})}{RSF^{HOST}}$$(b式)</p>
-<p>$$C_i^{MIX}=\frac{I_i^{MIX}}{RSF^{MIX}}=\frac{(I_i^{SIG3}-I_i^{SIG1})}{RSF^{MIX}}$$(c式)</p>
+<p>$$C_i^{HOST}=\frac{I_i^{HOST}}{RSF^{HOST}}=\frac{(I_i^{SIG2}-I_i^{SIG1})}{RSF^{HOST}}\text {，(b式)}$$</p>
+<p>$$C_i^{MIX}=\frac{I_i^{MIX}}{RSF^{MIX}}=\frac{(I_i^{SIG3}-I_i^{SIG1})}{RSF^{MIX}}\text {，(c式)}$$</p>
 <p>将(b式)(c式)代入(a式)可得</p>
-<p>$$C_i^{SAMP}=\frac{C_i^{STD}}{I_i^{STD}}* \left( \frac{I_i^{SIG2}-I_i^{SIG1}}{RSF^{HOST}}<em>(1-\frac1{x})+ \frac{(I_i^{SIG3}-I_i^{SIG1})}{x</em>RSF^{MIX}}\right)$$(d式)</p>
+<p>$$C_i^{SAMP}=\frac{C_i^{STD}}{I_i^{STD}}×\left( \frac{I_i^{SIG2}-I_i^{SIG1}}{RSF^{HOST}}×(1-\frac1{x})+\frac{(I_i^{SIG3}-I_i^{SIG1})}{x*RSF^{MIX}}\right)\text {，(d式)}$$</p>
 <p>如果要将(d式)用$\xi_i^{is}$来表达：</p>
-<p>$$C_i^{SAMP}=\left( \frac{C_{is}^{HOST}}{I_{is}^{HOST}}* \left( \frac{I_i^{SIG2}-I_i^{SIG1}}{\xi_i^{is}}<em>(1-\frac1{x})+ \left(\frac{C_{is}^{MIX}}{I_{is}^{MIX}}</em>\frac{(I_i^{SIG3}-I_i^{SIG1})}{x*\xi_i^{is}}\right)\right)\right)$$</p>
+<p>$$C_i^{SAMP}=\left(\frac{C_{is}^{HOST}}{I_{is}^{HOST}}×\left( \frac{I_i^{SIG2}-I_i^{SIG1}}{\xi_i^{is}}×(1-\frac1{x})+\left(\frac{C_{is}^{MIX}}{I_{is}^{MIX}}×\frac{(I_i^{SIG3}-I_i^{SIG1})}{x*\xi_i^{is}}\right)\right)\right)$$</p>
 <p>如果没有主矿物信号$I_i^{SIG2}=0$；<br>流体包裹体占整体质量分数为$x=1$；<br>此时$I_i^{MIX}=I_i^{SAMP}$；<br>此时，可以将公式又简化为前文提到过的关键公式：</p>
-<p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}*\frac{C_{is}^{SAMP}}{\xi_i^{is}}\text {，关键公式}$$</p>
+<p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}×\frac{C_{is}^{SAMP}}{\xi_i^{is}}\text {，关键公式}$$</p>
 <h2 id="流体包裹体质量分数x如何得到"><a href="#流体包裹体质量分数x如何得到" class="headerlink" title="流体包裹体质量分数x如何得到"></a>流体包裹体质量分数x如何得到</h2><p>前文中定义的变量中还有X不能直接得到结果，我们需要利用主矿物与流体包裹体中的差异。</p>
 <p>如果元素t在主矿物中存在，而不存在于流体包裹体中，那么我们可以对SIG3（主矿物+流体包裹体）相对于SIG2（主矿物）定义比值RI：</p>
 <p>$$RI=\frac{I_i^{HOST,SIG3}}{I_i^{HOST,SIG2}}=\frac{I_t^{HOST,SIG3}}{I_t^{HOST,SIG2}}$$</p>
