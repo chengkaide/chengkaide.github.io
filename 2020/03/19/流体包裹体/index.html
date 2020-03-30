@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/%E4%BF%A1%E5%8F%B7.png">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-23T03:03:11.790Z">
+<meta property="article:modified_time" content="2020-03-23T03:19:04.310Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/%E4%BF%A1%E5%8F%B7.png">
@@ -239,11 +239,12 @@
 <p>$$C_i^{SAMP}=\frac{I_i^{SAMP}}{I_{is}^{SAMP}}×\frac{C_{is}^{SAMP}}{\xi_i^{is}}\text {，关键公式}$$</p>
 <h2 id="流体包裹体质量分数x如何得到"><a href="#流体包裹体质量分数x如何得到" class="headerlink" title="流体包裹体质量分数x如何得到"></a>流体包裹体质量分数x如何得到</h2><p>前文中定义的变量中还有X不能直接得到结果，我们需要利用主矿物与流体包裹体中的差异。</p>
 <p>如果元素t在主矿物中存在，而不存在于流体包裹体中，那么我们可以对SIG3（主矿物+流体包裹体）相对于SIG2（主矿物）定义比值RI：</p>
-<p>$$RI=\frac{I_i^{HOST,SIG3}}{I_i^{HOST,SIG2}}=\frac{I_t^{HOST,SIG3}}{I_t^{HOST,SIG2}}$$</p>
+<p>$$RI=\frac{I_i^{HOST,SIG3}}{I_i^{HOST,SIG2}}=\frac{I_t^{HOST,SIG3}}{I_t^{HOST,SIG2}}\text {，主矿物中各种元素在不同信号段比值信号相等}$$</p>
 <p>已知t元素流体包裹体中不存在：</p>
 <p>$$I_t^{SAMP}=0$$</p>
 <p>并且因此：</p>
-<p>$$I_t^{HOST,SIG3}=I_t^{MIX}$$</p>
+<p>$$I_t^{HOST,SIG3}=I_t^{MIX}$$<br>使用RI定义，我们可以确定所有在混合信号中的所有元素的样品信号强度。</p>
+<p>$$I_i^{SAMP}=I_i^{MIX}-I_i^{HOST,SIG3}=I_i^{MIX}-RI×I_i^{HOST,SIG2}$$</p>
 
       
 
