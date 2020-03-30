@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
 <meta property="article:published_time" content="2020-01-25T03:16:55.000Z">
-<meta property="article:modified_time" content="2020-02-06T02:28:47.362Z">
+<meta property="article:modified_time" content="2020-03-30T13:35:01.700Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/01/25/%E5%88%A9%E7%94%A8R%E8%AF%AD%E8%A8%80%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%90%83%E5%8C%96%E5%AD%A6%E6%A8%A1%E5%9E%8B/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD.png">
@@ -212,8 +212,15 @@
 <p>代码实现</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- read.table(&quot;MaunaKea.data&quot;sep&#x3D;&quot;\t&quot;) #读取数据</span><br><span class="line">c0 &lt;- x[,1] #将第一列数据赋给c0</span><br><span class="line">ol &lt;- x[,2] #将第二列数据赋给ol</span><br><span class="line">fc &lt;- c(0.05,0.1,0.2,0.35) #不同的分离结晶程度赋给fc</span><br><span class="line">for (ee in fc)&#123;</span><br><span class="line">y &lt;- (c0-ol*ee)&#x2F;(1-ee) </span><br><span class="line">x &lt;- cbind(x,y)</span><br><span class="line">&#125; </span><br><span class="line">#for循环将fc中的数代入后，将得到的向量与x拼合</span><br><span class="line">colnames(x) &lt;- c(&quot;C0&quot;,&quot;Ol&quot;,fc) #列名设为原列名以及fc数值</span><br><span class="line">print(round(x,2)) #输出四舍五入保留两位小数</span><br></pre></td></tr></table></figure>
+<h2 id="部分熔融"><a href="#部分熔融" class="headerlink" title="部分熔融"></a>部分熔融</h2><h1 id="微量元素建模"><a href="#微量元素建模" class="headerlink" title="微量元素建模"></a>微量元素建模</h1><p>地质系统之中所有成分活度相同达到平衡，这也是大多数岩石学和地球化学建模的前提。岩浆系统中，平衡过程控制着元素在晶体和熔体之间的分配。然而，活度与浓度之间的关系并不是简单的线性关系。很难以严格的形式对存于体系中的元素和矿物表示这种关系。因此地球化学建模依赖于一些简化假设。</p>
+<h2 id="简化假设"><a href="#简化假设" class="headerlink" title="简化假设"></a>简化假设</h2><p>矿物的主量元素在熔化或结晶过程中通常保持一致。对微量元素的建模方式最简单的方式就是忽视活度，测量或者推测矿物化学成分。但是请注意，即使在这种情况下，也可以计算活度和平衡。因此，通常不可能使用与主量元素相同的质量平衡方法。<br>在这种情况下，微量元素出现在少量的晶格中(所以是足够的“稀释”)，活性应该与它们的浓度成比例。均衡系数依赖于矿物的本质，不取决于元素含量。因此，活动需要被再次忽略，取而代之的是更为简单的概念：元素在不同相中的分配。然而主量元素建模依赖于固相中的绝对浓度。对于微量元素来说，关键参数是微量元素含量在固相和液相间的比值。<br>这个方法在面对稀土元素富集相计算时无法实现。一些微量元素是构成矿物的必需元素。成为某些副矿物晶格的一部分。比如锆石中的Zr，磷灰石中的P，Th及独居石中的轻稀土。亨利定律就不再适合基于分配系数的策略了。此外，活度-成分关系并不完美。或者根本没有建立。因此，最好的方法就是经验性的基于实验和矿物在硅酸盐熔体中的溶解。</p>
+<h2 id="相容与不相容的概念不是绝对的"><a href="#相容与不相容的概念不是绝对的" class="headerlink" title="相容与不相容的概念不是绝对的"></a>相容与不相容的概念不是绝对的</h2><p>相容与不相容取决于元素、矿物及熔体成分。比如Yb在玄武岩体系之中对于大多数造岩矿物均不相容，但是在石榴子石中强烈相容。在长英质体系中Yb元素在角闪石和单斜辉石中均相容。</p>
+<h2 id="分配系数的控制因素"><a href="#分配系数的控制因素" class="headerlink" title="分配系数的控制因素"></a>分配系数的控制因素</h2><p>对于给定矿物/元素对的分配系数也是其他系统参数的函数。首先，分配系数对熔体聚合程度很敏感，因此与成分密切相关。举例来说，Bedard证明当熔体的MgO含量在2%至20%之间变化时，橄榄石中的Cr元素分配系数相差2至3个数量级。熔体中挥发物(尤其是H2O)的存在也对分配系数的值有很大的影响。<br>KD值对温度也同样敏感。温度和熔体成分往往密切相关。压力对KD值也有影响，尽管影响很小。<br>系统的氧化还原状态也会影响KD值。这个因素影响可以被长石中的Eu元素很好地记录下来。如果元素具有多种稳定价态，都会出现相应的现象。<br>另一方面上来讲，亨利定律意味着KD值与体系中微量元素的含量无关。不过，这个近似有效的最大浓度并没有严格定义。第11-12章中描述的所有模型都隐含假设KD与浓度无关。</p>
+<h2 id="非单一相分配系数"><a href="#非单一相分配系数" class="headerlink" title="非单一相分配系数"></a>非单一相分配系数</h2><p>当堆晶岩与剩余物都包含多个矿物相，情况就会变得很复杂。<br>每种矿物都按照自身的KD与熔体相平衡。<br>因此，各相之中的含量不止受到体系中整体元素含量相关，也受到分离的矿物相对丰度和本身性质影响。<br>想象有这样一个体系：岩浆熔体与两种矿物共存，丰度相似，一种矿物具有高KD值另一种具有低KD值。高KD相将会从熔体中提取绝大部分元素。低KD值矿物相获得的元素就会更少。</p>
+<p>“总体分配系数”概念就这样被引出，D，用来解释将固体相作为一个整体的行为。用来表达固体整体的和液体的浓度含量。<br>CL指的是熔体单相的浓度，CS指的是固相整体元素浓度，固体中包含多种元素。因此，堆晶岩（或者剩余固体）微量元素含量能够表示为n种矿物相的混合物。<br>这样，D就表示为各个单个矿物的分配系数的函数。在岩石成因模拟中，D是一个重要的参数，对示踪元素的行为有很大的影响。</p>
+<h2 id="直接微量元素模型"><a href="#直接微量元素模型" class="headerlink" title="直接微量元素模型"></a>直接微量元素模型</h2><p>结晶或熔解的微量元素模型涉及到固相和熔体之间的平衡，这种平衡是通过分配的概念来评估的。大多数地球化学家使用不同的熔融(分批熔融)和结晶(分步结晶)方程式。然而，后面的表述将表明，这种对模型的选择——尽管它可能是有保证的——并不是唯一可用的选择。在选择正确的建模策略时，在批处理和分步处理之间进行决策是至关重要的。<br>在分批(封闭系统)过程中，演化方向(熔融或结晶)是无关的，数值表达式是相同的，因为它们都只受固体和液体之间的质量平衡控制。另一方面，该方案对于分步熔融和结晶是不同的，因为这些代表了本质上开放的体系。</p>
+<h2 id="terms-术语"><a href="#terms-术语" class="headerlink" title="terms(术语)"></a>terms(术语)</h2><p>在地球化学文献中，有几个术语使用频率很高。熔融过程被描述为“分批”或“分步”，而结晶是“平衡”。(很少)或“分馏”(更常见的是，有时“分馏”被用作“结晶”的同义词)。<br>“平衡”这个术语多少有点误导人——因为结晶过程也涉及熔体和晶体之间的平衡，尽管是无穷小的平衡。此外，“分批”熔融和“平衡”结晶是指非常相似的过程，即那些没有将液体从固体中分离出来之前。<br>因此，我们决定在熔化和结晶过程中使用“分批”和“分步”限定词——在本书中，这导致了该术语的缺失“平衡结晶”及其它被(到目前为止)不常见的表达取代“分批结晶”。</p>
 
-<h2 id="部分熔融"><a href="#部分熔融" class="headerlink" title="部分熔融"></a>部分熔融</h2>
       
 
       
@@ -315,7 +322,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用R语言加深理解流体包裹体成分计算原理
+          加深理解流体包裹体成分计算原理
         
       </div>
     </a>
@@ -349,7 +356,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地球化学建模"><span class="toc-number">1.</span> <span class="toc-text">地球化学建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶过程中的质量守恒"><span class="toc-number">1.1.</span> <span class="toc-text">结晶过程中的质量守恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.2.</span> <span class="toc-text">结晶分异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分熔融"><span class="toc-number">1.3.</span> <span class="toc-text">部分熔融</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#地球化学建模"><span class="toc-number">1.</span> <span class="toc-text">地球化学建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶过程中的质量守恒"><span class="toc-number">1.1.</span> <span class="toc-text">结晶过程中的质量守恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结晶分异"><span class="toc-number">1.2.</span> <span class="toc-text">结晶分异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部分熔融"><span class="toc-number">1.3.</span> <span class="toc-text">部分熔融</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微量元素建模"><span class="toc-number">2.</span> <span class="toc-text">微量元素建模</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简化假设"><span class="toc-number">2.1.</span> <span class="toc-text">简化假设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相容与不相容的概念不是绝对的"><span class="toc-number">2.2.</span> <span class="toc-text">相容与不相容的概念不是绝对的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分配系数的控制因素"><span class="toc-number">2.3.</span> <span class="toc-text">分配系数的控制因素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非单一相分配系数"><span class="toc-number">2.4.</span> <span class="toc-text">非单一相分配系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#直接微量元素模型"><span class="toc-number">2.5.</span> <span class="toc-text">直接微量元素模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#terms-术语"><span class="toc-number">2.6.</span> <span class="toc-text">terms(术语)</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
