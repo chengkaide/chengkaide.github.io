@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>使用R语言加深理解流体包裹体成分计算原理 | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
+  <meta name="description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的朋友提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用R语言加深理解流体包裹体成分计算原理">
 <meta property="og:url" content="http://yoursite.com/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。 术语i—任意元素i">
+<meta property="og:description" content="本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的朋友提供更多信息渠道。 术语i—任意元素i">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/%E4%BF%A1%E5%8F%B7.png">
 <meta property="article:published_time" content="2020-03-19T08:54:23.000Z">
-<meta property="article:modified_time" content="2020-03-23T03:19:04.310Z">
+<meta property="article:modified_time" content="2020-03-30T04:37:41.060Z">
 <meta property="article:author" content="成凯得">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/%E4%BF%A1%E5%8F%B7.png">
@@ -188,7 +188,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的学生提供更多信息渠道。</p>
+        <p>本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的朋友提供更多信息渠道。</p>
 <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>i—任意元素i</p>
 <a id="more"></a>
 <p>I—信号强度</p>
@@ -245,6 +245,25 @@
 <p>并且因此：</p>
 <p>$$I_t^{HOST,SIG3}=I_t^{MIX}$$<br>使用RI定义，我们可以确定所有在混合信号中的所有元素的样品信号强度。</p>
 <p>$$I_i^{SAMP}=I_i^{MIX}-I_i^{HOST,SIG3}=I_i^{MIX}-RI×I_i^{HOST,SIG2}$$</p>
+<p>从以上公式可以推导出所有其他元素含量。<br>尽管在含量计算中不需要质量分数x，但是它可以表示为：</p>
+<p>$$x=\frac{C_t^{HOST}-C_t^{MIX}}{C_t^{HOST}-C_t^{SAMP}}=1-\frac{C_t^{MIX}}{C_t^{HOST}}$$</p>
+<p>当然也可以写成这样</p>
+<p>$$x=\frac{C_{is}^{HOST}-C_{is}^{MIX}}{C_{is}^{HOST}-C_{is}^{SAMP}}$$</p>
+<p>其中$C_t^{MIX}$,$C_{is}^{MIX}$都不能知道，我们用比值a来代表两者的比值，我们可以列出下式：</p>
+<p>$$a=\frac{C_t^{MIX}}{C_{is}^{MIX}}=\frac{I_t^{MIX}}{I_{is}^{MIX}}×\frac1{\xi_t^{is}}=\frac{(1-x)×C_t^{HOST}}{(1-x)×C_{is}^{HOST}+x×C_{is}^{SAMP}}$$</p>
+<p>x（流体包裹体占总体混合物的质量分数）可以用含a（$C_t^{MIX}$,$C_{is}^{MIX}$两者比值）的表达式表示：</p>
+<p>$$x=\frac{C_t^{HOST}-a×C_{is}^{HOST}}{C_t^{HOST}-a×C_{is}^{HOST}+a×C_{is}^{SAMP}}$$</p>
+<h2 id="第二个内标"><a href="#第二个内标" class="headerlink" title="第二个内标"></a>第二个内标</h2><p>在计算含量时必须要知道的就是样品中的已知浓度。<br>有了主矿物示踪元素和样品中一个已知元素浓度，就可以计算混合信号中样品含量。<br>有了第二个内标，为此计算出质量分数x。</p>
+<p>如上，我们可以表示元素比值a为：</p>
+<p>$$a=\frac{C_{is1}^{MIX}}{C_{is2}^{MIX}}=\frac{I_{is1}^{MIX}}{I_{is2}^{MIX}}×\frac1{\xi_t^{is}}=\frac{(1-x)×C_{is1}^{HOST}+x×C_{is1}^{SAMP}}{(1-x)×C_{is2}^{HOST}+x×C_{is2}^{SAMP}}$$</p>
+<p>质量分数x表示为：</p>
+<p>$$x=\frac{C_{is1}^{HOST}-a×C_{is2}^{HOST}}{C_{is1}^{HOST}-C_{is2}^{SAMP}-a×C_{is2}^{HOST}+a×C_{is2}^{SAMP}}$$</p>
+<p>OK，现在x定义完成，我们可以定义混合物质中内标元素</p>
+<p>$$C_{is2}^{MIX}=(1-x)×C_{is2}^{HOST}+x×C_{is2}^{SAMP}$$<br>上式表达的含义就是混合物中内标元素含量等于主矿物内标元素部分加上样品本身内标元素部分。</p>
+<p>利用信号强度比值，$C_{i}^{MIX}$可以定义混合信号中的所有元素：</p>
+<p>$$C_{i}^{MIX}=\frac{I_{i}^{MIX}}{I_{is2}^{MIX}}×\frac{C_{is2}^{MIX}}{\xi_i^{is2}}$$</p>
+<p>样品所有元素含量都可以被定义出来：</p>
+<p>$$C_{i}^{SAMP}=\frac1{x}×C_{i}^{MIX}-\frac{1-x}{x}×C_{i}^{HOST}$$</p>
 
       
 
@@ -372,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.</span> <span class="toc-text">术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理解原理基础知识"><span class="toc-number"></span> <span class="toc-text">理解原理基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式计算"><span class="toc-number"></span> <span class="toc-text">公式计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单一信号"><span class="toc-number">1.</span> <span class="toc-text">单一信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂信号（主矿物-流体包裹体）"><span class="toc-number">2.</span> <span class="toc-text">复杂信号（主矿物+流体包裹体）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流体包裹体质量分数x如何得到"><span class="toc-number">3.</span> <span class="toc-text">流体包裹体质量分数x如何得到</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.</span> <span class="toc-text">术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#理解原理基础知识"><span class="toc-number"></span> <span class="toc-text">理解原理基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#公式计算"><span class="toc-number"></span> <span class="toc-text">公式计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单一信号"><span class="toc-number">1.</span> <span class="toc-text">单一信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂信号（主矿物-流体包裹体）"><span class="toc-number">2.</span> <span class="toc-text">复杂信号（主矿物+流体包裹体）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流体包裹体质量分数x如何得到"><span class="toc-number">3.</span> <span class="toc-text">流体包裹体质量分数x如何得到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二个内标"><span class="toc-number">4.</span> <span class="toc-text">第二个内标</span></a></li></ol>
                     </div>
                 </span>
             </div>
