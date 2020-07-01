@@ -173,6 +173,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-画一张地图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/30/%E7%94%BB%E4%B8%80%E5%BC%A0%E5%9C%B0%E5%9B%BE/">在Windows系统中使用GMT作图</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/30/%E7%94%BB%E4%B8%80%E5%BC%A0%E5%9C%B0%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2020-06-30T15:39:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>阅读过gmt中文社区提供的手册后，手册内容均为bash脚本，手册中已经将batch脚本和bash脚本的区别标明，但是对于新手操作和使用来说还是不够友好。本文主要是对教程中的bash脚本改为batch脚本。</p>
+<p>以下内容是基于gmt中文社区中的手册内容整理，便于查看<br>[GMT中文手册]（<a href="https://docs.gmt-china.org/6.0/）" target="_blank" rel="noopener">https://docs.gmt-china.org/6.0/）</a></p>
+<h1 id="Bash脚本与Batch脚本的转换"><a href="#Bash脚本与Batch脚本的转换" class="headerlink" title="Bash脚本与Batch脚本的转换"></a>Bash脚本与Batch脚本的转换</h1><p>##　注释符号的区别<br>#和REM 两种注释符号<br>##　定义变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>=value </span><br><span class="line"><span class="keyword">set</span> var=value</span><br></pre></td></tr></table></figure>
+<p>batch脚本需要添加set<br>##　引用变量<br>$region<br>%region%<br>引用变量中的值<br>##　将命令结果输出作为变量<br>var=<code>cmd1</code><br>batch脚本需要把命令结果输出至文件中，再将文件数据定义变量<br>##　数据输入<br>bash脚本多行赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gmt plot &lt;&lt; EOF</span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">5</span> <span class="number">6</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>batch需要多行echo命令赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> <span class="number">2</span> &gt; tmp.dat</span><br><span class="line">echo <span class="number">3</span> <span class="number">4</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">5</span> <span class="number">6</span> &gt;&gt; tmp.dat</span><br><span class="line">gmt plot tmp.dat</span><br></pre></td></tr></table></figure>
+<p>数据输入存在比较大的不同，是主要的修改部分。这也是bash脚本具有优势的一点。</p>
+<h1 id="绘制第一幅图"><a href="#绘制第一幅图" class="headerlink" title="绘制第一幅图"></a>绘制第一幅图</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp1.dat</span><br><span class="line"></span><br><span class="line">echo <span class="number">104.39</span> <span class="number">29.90</span> &gt; tmp.dat</span><br><span class="line">echo <span class="number">13.14</span> <span class="number">52.50</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">19.99</span> <span class="number">-34.52</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">-77.15</span> <span class="number">38.89</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">-52.47</span> <span class="number">-31.62</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">150.36</span> <span class="number">-33.79</span> &gt;&gt; tmp.dat</span><br><span class="line">echo <span class="number">76.22</span> <span class="number">-69.22</span> &gt;&gt; tmp.dat</span><br><span class="line"></span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp2.dat </span><br><span class="line">echo <span class="number">104.39</span> <span class="number">29.90</span> &gt;&gt; tmp2.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp3.dat</span><br><span class="line">echo <span class="number">13.14</span> <span class="number">52.50</span> &gt;&gt; tmp3.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp4.dat</span><br><span class="line">echo <span class="number">19.99</span> <span class="number">-34.52</span> &gt;&gt; tmp4.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp5.dat</span><br><span class="line">echo <span class="number">-77.15</span> <span class="number">38.89</span> &gt;&gt; tmp5.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp6.dat</span><br><span class="line">echo <span class="number">-52.47</span> <span class="number">-31.62</span> &gt;&gt; tmp6.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp7.dat</span><br><span class="line">echo <span class="number">150.36</span> <span class="number">-33.79</span> &gt;&gt; tmp7.dat</span><br><span class="line">echo <span class="number">130.72</span> <span class="number">32.78</span> &gt; tmp8.dat</span><br><span class="line">echo <span class="number">76.22</span> <span class="number">-69.22</span> &gt;&gt; tmp8.dat</span><br><span class="line"></span><br><span class="line">gmt begin layers png</span><br><span class="line">gmt basemap -JH180/<span class="number">15</span>c -Rg -B0</span><br><span class="line">gmt grdimage @earth_relief_10m -Cetopo1 -I+d</span><br><span class="line">gmt colorbar -Bxa2000f+l<span class="string">"Elevation (m)"</span></span><br><span class="line">gmt plot tmp2.dat -W1p,red</span><br><span class="line">gmt plot tmp3.dat -W1p,red</span><br><span class="line">gmt plot tmp4.dat -W1p,red</span><br><span class="line">gmt plot tmp5.dat -W1p,red</span><br><span class="line">gmt plot tmp6.dat -W1p,red</span><br><span class="line">gmt plot tmp7.dat -W1p,red</span><br><span class="line">gmt plot tmp8.dat -W1p,red</span><br><span class="line">gmt plot tmp1.dat -Sa0<span class="number">.5</span>c -W0<span class="number">.5</span>p,black,solid -Gyellow </span><br><span class="line">gmt plot tmp.dat -St0<span class="number">.2</span>c -W0<span class="number">.5</span>p,black,solid -Gblack </span><br><span class="line"></span><br><span class="line">echo <span class="number">-77.15</span> <span class="number">38.89</span> ML Washington &gt; tmp.dat</span><br><span class="line">echo <span class="number">76.22</span> <span class="number">-69.22</span> ML Zhongshanzhan &gt; tmp1.dat</span><br><span class="line">echo <span class="number">104.39</span> <span class="number">29.90</span> MR Zigong &gt; tmp2.dat</span><br><span class="line">echo <span class="number">13.14</span> <span class="number">52.50</span> TC Berlin &gt; tmp3.dat</span><br><span class="line">echo <span class="number">19.99</span> <span class="number">-34.52</span> ML Bredasdorp &gt; tmp4.dat</span><br><span class="line">echo <span class="number">150.36</span> <span class="number">-33.79</span> ML Sydney &gt; tmp5.dat</span><br><span class="line">echo <span class="number">-52.47</span> <span class="number">-31.62</span> ML Pelotas &gt; tmp6.dat</span><br><span class="line"></span><br><span class="line">gmt text tmp.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp1.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp2.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp3.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp4.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp5.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line">gmt text tmp6.dat -F+f9p,<span class="number">1</span>,black+j -Dj0<span class="number">.1</span>c/<span class="number">0.1</span>c</span><br><span class="line"></span><br><span class="line">gmt end show</span><br><span class="line"></span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+<p><img src="layers.png" alt="图1"></p>
+<h1 id="图中图的绘制"><a href="#图中图的绘制" class="headerlink" title="图中图的绘制"></a>图中图的绘制</h1><p>在很多地质相关的文献资料中都可以看到图中图，因为这样很容易让不熟悉区域的读者，迅速了解你的研究区域。</p>
+<p>澳大利亚与全球图</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gmt begin layers2 png</span><br><span class="line">gmt coast -R110E/<span class="number">170</span>E/<span class="number">44</span>S/<span class="number">9</span>S -JM6i -B -BWSne -Wfaint -N2/<span class="number">1</span>p -Gbrown -EAU+gbisque</span><br><span class="line">gmt inset begin -DjTR+w1<span class="number">.5</span>i+o0<span class="number">.15</span>i/<span class="number">0.1</span>i -F+gwhite+p1p+c0<span class="number">.1</span>c</span><br><span class="line">gmt coast -JG120/<span class="number">30</span>S/? -Rg -Bg -Wfaint -Gbrown -EAU+gbisque -A5000</span><br><span class="line">gmt inset end</span><br><span class="line">gmt end show</span><br></pre></td></tr></table></figure>
+<p><img src="layers2.png" alt="图2"></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>Wessel, P., Luis, J. F., Uieda, L., Scharroo, R., Wobbe, F., Smith, W. H. F., &amp; Tian, D. (2019). The Generic Mapping Tools Version 6. Geochemistry, Geophysics, Geosystems, 20, 5556–5564. <a href="https://doi.org/10.1029/2019GC008515" target="_blank" rel="noopener">https://doi.org/10.1029/2019GC008515</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">GMT6 in Windows</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/30/%E7%94%BB%E4%B8%80%E5%BC%A0%E5%9C%B0%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IOCG体系中萤石" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -868,6 +957,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">萤石微量元素</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">GMT6 in Windows</a>
               </li>
             
             <div class="clearfix"></div>
