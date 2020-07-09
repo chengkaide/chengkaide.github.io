@@ -176,6 +176,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-latex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/09/latex/">用latex排版</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/09/latex/" class="archive-article-date">
+  	<time datetime="2020-07-09T12:00:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用ctex编译<br><a href="https://blog.csdn.net/muzhicihe/article/details/80326090" target="_blank" rel="noopener">latex下载</a><br><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[AtuoFakeBold]&#123;ctexart&#125;%加粗效果</span><br><span class="line">%\usepackage&#123;ctex&#125;</span><br><span class="line">\usepackage[colorlinks,urlcolor=blue,linkcolor=black]&#123;hyperref&#125;%超链接</span><br><span class="line">\usepackage[<span class="keyword">super</span>]&#123;gbt7714&#125;%参考文献排版标准</span><br><span class="line">\usepackage[left=<span class="number">2.5</span>cm,right=<span class="number">1.97</span>cm,top=<span class="number">2.5</span>cm,bottom=<span class="number">2.5</span>cm]&#123;geometry&#125;</span><br><span class="line">\renewcommand&#123;\baselinestretch&#125;&#123;<span class="number">1.25</span>&#125;</span><br><span class="line">\usepackage&#123;fontspec&#125;</span><br><span class="line">\setmainfont&#123;Times New Roman&#125;%罗马字体</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%\usepackage[<span class="keyword">super</span>]&#123;cite&#125;%参考文献上标</span><br><span class="line">%\renewcommand\@citess[1]&#123;\textsuperscript&#123;[#1]&#125;&#125;%加上中括号</span><br><span class="line"></span><br><span class="line">\ctexset&#123;section=&#123;format=&#123;\heiti \zihao&#123;<span class="number">4</span>&#125; \bfseries&#125;&#125;,</span><br><span class="line">subsection=&#123;format=&#123;\heiti \zihao&#123;<span class="number">5</span>&#125; \bfseries&#125;&#125;,</span><br><span class="line">subsubsection=&#123;format=&#123;\kaishu \zihao&#123;<span class="number">5</span>&#125;&#125;&#125;&#125;</span><br><span class="line">%***************中文标题****************</span><br><span class="line">\title&#123;\heiti \zihao&#123;<span class="number">2</span>&#125;论文的题目&#125;</span><br><span class="line">\author&#123;\kaishu \zihao&#123;<span class="number">-4</span>&#125; 作者姓名\\\songti \zihao&#123;<span class="number">-5</span>&#125; 工作单位\quad 具体到学院&#125;</span><br><span class="line">\date&#123;\today&#125;</span><br><span class="line">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span><br><span class="line">\begin&#123;<span class="built_in">document</span>&#125;</span><br><span class="line">	\maketitle</span><br><span class="line">	\noindent \heiti 摘要:\songti 写摘要。\\</span><br><span class="line">	\heiti 关键词: \songti \LaTeX ; 中文期刊\\</span><br><span class="line">	\heiti 中图分类号: \songti <span class="number">000</span>\hspace&#123;<span class="number">3</span>cm&#125;</span><br><span class="line">	\heiti 文献标识码: \songti A  \\</span><br><span class="line">	%英文标题居中加粗</span><br><span class="line">\begin&#123;center&#125;</span><br><span class="line">	\textbf&#123;\zihao&#123;<span class="number">4</span>&#125; How to take notes <span class="keyword">with</span> \LaTeX \\&#125;</span><br><span class="line">	\zihao&#123;<span class="number">5</span>&#125; chengkaide\\</span><br><span class="line">	\zihao&#123;<span class="number">-5</span>&#125; ( China University <span class="keyword">of</span> Geoscience (Wuhan) )\\</span><br><span class="line">\end&#123;center&#125;</span><br><span class="line">    \textbf&#123;Abstract&#125;: <span class="keyword">this</span> is a test.\\</span><br><span class="line">    \textbf&#123;Keywords&#125;: \LaTeX \\</span><br><span class="line">    </span><br><span class="line">\section&#123;标题&#125;</span><br><span class="line">参考文献，使用bibtex格式导入即可。</span><br><span class="line"></span><br><span class="line">这里有参考文献\cite&#123;Audetat2000&#125;。</span><br><span class="line">第二篇参考文献\cite&#123;H2019&#125;</span><br><span class="line">第三篇参考文献\cite&#123;Korges2017&#125;</span><br><span class="line">第四篇参考文献\cite&#123;Lecumberri2017&#125;</span><br><span class="line"></span><br><span class="line">\section&#123;Sn元素含量&#125;</span><br><span class="line">\subsection&#123;crazy&#125;</span><br><span class="line">\subsubsection&#123;successful&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\begin&#123;center&#125;</span><br><span class="line">	\bibliography&#123;myref&#125;	%展示全部参考文献</span><br><span class="line">\end&#123;center&#125;</span><br><span class="line"></span><br><span class="line">\end&#123;<span class="built_in">document</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">LaTex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/09/latex/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Geobalance" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -844,71 +920,6 @@
 
 
   
-    <article id="w-认识R语言" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/">R语言（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/" class="archive-article-date">
-  	<time datetime="2020-01-23T06:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="R语言安装与基本作图"><a href="#R语言安装与基本作图" class="headerlink" title="R语言安装与基本作图"></a>R语言安装与基本作图</h1>
-        
-          <a class="article-more-a" href="/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/23/%E8%AE%A4%E8%AF%86R%E8%AF%AD%E8%A8%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1059,6 +1070,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">geobalance</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">LaTex</a>
               </li>
             
             <div class="clearfix"></div>
