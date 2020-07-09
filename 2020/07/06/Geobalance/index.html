@@ -23,7 +23,7 @@
 <meta property="og:description" content="要完整了解这个工具到底怎么用之前，必须要回顾线性代数相关内容。理解一些术语：1.秩：矩阵中线性独立的行列个数，可以是行数也可以是列数，或者比行数列数都小。2.满秩：秩等于行数或秩等于列数，方阵行数列数相同等价。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-06T09:22:29.000Z">
-<meta property="article:modified_time" content="2020-07-08T11:38:56.468Z">
+<meta property="article:modified_time" content="2020-07-09T12:16:10.056Z">
 <meta property="article:author" content="成凯得">
 <meta property="article:tag" content="随笔">
 <meta property="article:tag" content="geobalance">
@@ -207,7 +207,13 @@
 </blockquote>
 <h2 id="SVD分解"><a href="#SVD分解" class="headerlink" title="SVD分解"></a>SVD分解</h2><p>第一步 求解A的SVD分解</p>
 <blockquote>
-<p>$$ [U,S,V] = svd(A); % A = U<em>S</em>V’$$<br>第二步 将S中的非零元素求倒<br>$$ [U,S,V] = svd(A); % A = U<em>S</em>V’$$<br>T=S;<br>T(find(S<del>=0)) = 1./S(find(S</del>=0));</p>
+<p>$$ [U,S,V] = svd(A); % A = U<em>S</em>V’$$<br>第二步 将S中的非零元素求倒<br>$$ [U,S,V] = svd(A); % A = U<em>S</em>V’$$</p>
+</blockquote>
+<blockquote>
+<p>$$ T=S $$</p>
+</blockquote>
+<blockquote>
+<p>$$ T(find(S<del>=0)) = 1./S(find(S</del>=0)) $$</p>
 </blockquote>
 <p>第三步 求InvA<br>svdInvA = V * T’ * U’;</p>
 <p><a href="https://blog.csdn.net/xingozd/article/details/50417233" target="_blank" rel="noopener">参考博客</a></p>
@@ -218,32 +224,6 @@
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/shou1.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
