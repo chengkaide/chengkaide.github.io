@@ -24,9 +24,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/%E6%A0%B7%E5%93%81.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.gif">
+<meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/GeoBalance%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B.gif">
 <meta property="article:published_time" content="2020-07-06T09:22:29.000Z">
-<meta property="article:modified_time" content="2020-07-17T02:32:08.436Z">
+<meta property="article:modified_time" content="2020-07-17T02:42:39.488Z">
 <meta property="article:author" content="成凯得">
 <meta property="article:tag" content="随笔">
 <meta property="article:tag" content="geobalance">
@@ -205,10 +205,8 @@
         <p>要完整了解这个工具到底怎么用之前，必须要回顾线性代数相关内容。理解一些术语：<br>1.秩：矩阵中线性独立的行列个数，可以是行数也可以是列数，或者比行数列数都小。<br>2.满秩：秩等于行数或秩等于列数，方阵行数列数相同等价。</p>
 <a id="more"></a>
 <p>3.奇异性矩阵：就是该矩阵的秩不是满秩。<br>4.方阵与非方阵：行数与列数相同的矩阵即为方阵，反之即为非方阵。<br>5.伪逆矩阵[百科链接]（<a href="https://baike.baidu.com/item/%E4%BC%AA%E9%80%86%E7%9F%A9%E9%98%B5/7397859?fr=kg_qa）" target="_blank" rel="noopener">https://baike.baidu.com/item/%E4%BC%AA%E9%80%86%E7%9F%A9%E9%98%B5/7397859?fr=kg_qa）</a><br>通俗讲就是本来不能求逆的矩阵，求逆出来的结果。<br>6.矩阵分解：是将矩阵拆解为数个矩阵的乘积，可分为三角分解、满秩分解、QR分解、Jordan分解和SVD（奇异值）分解等。相当于将一个数（矩阵）分为多个数（矩阵）相乘。<br>7.奇异值分解（Singular Value Decomposition）[百科链接]（<a href="https://baike.baidu.com/item/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/4968432?fr=aladdin）" target="_blank" rel="noopener">https://baike.baidu.com/item/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/4968432?fr=aladdin）</a><br>运用该方法目的是计算伪逆矩阵。</p>
-<h1 id="使用界面"><a href="#使用界面" class="headerlink" title="使用界面"></a>使用界面</h1><p><img src="%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="开始"></p>
-<p><img src="%E6%A0%B7%E5%93%81.png" alt="矩阵分布"></p>
-<p><img src="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.gif" alt="使用过程"></p>
-<p>A矩阵是m种成分分布在n种相中。向量b代表的是m种成分在同一相的比例。x代表各相所占质量百分比。<br>在常见的岩石地球化学研究实践中，主要关注从方程Ax = b中求出x。但是，解决这个问题并不简单，因为Ax = b中解(x)有四种情况，矩阵A的秩r与行数m、列数n的关系不同导致结果不同，分情况讨论:</p>
+<h1 id="使用界面"><a href="#使用界面" class="headerlink" title="使用界面"></a>使用界面</h1><p><img src="%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="开始"><br><img src="%E6%A0%B7%E5%93%81.png" alt="矩阵分布"><br>按照计算设置选取矩阵及名称<br><img src="GeoBalance%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B.gif" alt="使用过程"></p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>A矩阵是m种成分分布在n种相中。向量b代表的是m种成分在同一相的比例。x代表各相所占质量百分比。<br>在常见的岩石地球化学研究实践中，主要关注从方程Ax = b中求出x。但是，解决这个问题并不简单，因为Ax = b中解(x)有四种情况，矩阵A的秩r与行数m、列数n的关系不同导致结果不同，分情况讨论:</p>
 <p>（1）矩阵A r=m=n，矩阵A是一个方阵、可逆非奇异矩阵，Ax = b有唯一解;<br> $$X=A^{-}b$$<br>解法：因为矩阵A为满秩方阵。所以可求出A矩阵的逆矩阵。通过求解A的逆矩阵便可求解x。<br>手算A逆矩阵方法有三种，待定系数法，伴随矩阵法，初等变换法。<a href="https://blog.csdn.net/u011636160/article/details/49019513" target="_blank" rel="noopener">方法</a><br>不同语言机算也只需要一个命令即可。<br>但是该式并不能很好地应用在计算</p>
 <p>（2）r=m &lt; n,方程比未知数少，x有无穷个解<br>（3）r=n &lt; m，方程比未知数多，矩阵为超定的，x有1个或无解<br>（4）如果r &lt; n,并且r &lt; m,矩阵A缺秩（m≠n）或者是奇异性矩阵（m=n）x有0或无穷解</p>
 <p>然而，在大多数岩石学研究中，相律控制着化学反应，组分数（m）通常大于相数（n）。即为第三种或第四种情况。在这样的情况下，矩阵不可逆。<br>只可以可以获得其近似解$X_{ls}$。<br>这就涉及到最小二乘问题的解法。</p>
@@ -343,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用界面"><span class="toc-number">1.</span> <span class="toc-text">使用界面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘问题"><span class="toc-number">2.</span> <span class="toc-text">最小二乘问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">3.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用界面"><span class="toc-number">1.</span> <span class="toc-text">使用界面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法"><span class="toc-number">2.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘问题"><span class="toc-number">3.</span> <span class="toc-text">最小二乘问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
