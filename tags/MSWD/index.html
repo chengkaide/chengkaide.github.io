@@ -13,25 +13,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>GeoBalance的使用 | 成凯得的博客</title>
+  <title>Tag: MSWD | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要完整了解这个工具到底怎么用之前，必须要回顾线性代数相关内容。理解一些术语：1.秩：矩阵中线性独立的行列个数，可以是行数也可以是列数，或者比行数列数都小。2.满秩：秩等于行数或秩等于列数，方阵行数列数相同等价。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="GeoBalance的使用">
-<meta property="og:url" content="http://yoursite.com/2020/07/06/Geobalance/index.html">
+  <meta name="description" content="学习GCDkit软件过程及体会">
+<meta property="og:type" content="website">
+<meta property="og:title" content="成凯得的博客">
+<meta property="og:url" content="http://yoursite.com/tags/MSWD/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="要完整了解这个工具到底怎么用之前，必须要回顾线性代数相关内容。理解一些术语：1.秩：矩阵中线性独立的行列个数，可以是行数也可以是列数，或者比行数列数都小。2.满秩：秩等于行数或秩等于列数，方阵行数列数相同等价。">
+<meta property="og:description" content="学习GCDkit软件过程及体会">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/%E6%A0%B7%E5%93%81.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/06/Geobalance/GeoBalance%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B.gif">
-<meta property="article:published_time" content="2020-07-06T09:22:29.000Z">
-<meta property="article:modified_time" content="2020-07-17T02:45:06.682Z">
 <meta property="article:author" content="成凯得">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="geobalance">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/06/Geobalance/%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png">
   
     <link rel="alternative" href="/atom.xml" title="成凯得的博客" type="application/atom+xml">
   
@@ -182,48 +174,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Geobalance" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      GeoBalance的使用
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/18/MSWD/" class="archive-article-date">
+  	<time datetime="2020-07-18T08:48:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/18/MSWD/">MSWD如何衡量地质年龄质量？</a>
     </h1>
   
 
-        
-        <a href="/2020/07/06/Geobalance/" class="archive-article-date">
-  	<time datetime="2020-07-06T09:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要完整了解这个工具到底怎么用之前，必须要回顾线性代数相关内容。理解一些术语：<br>1.秩：矩阵中线性独立的行列个数，可以是行数也可以是列数，或者比行数列数都小。<br>2.满秩：秩等于行数或秩等于列数，方阵行数列数相同等价。</p>
-<a id="more"></a>
-<p>3.奇异性矩阵：就是该矩阵的秩不是满秩。<br>4.方阵与非方阵：行数与列数相同的矩阵即为方阵，反之即为非方阵。<br>5.伪逆矩阵[百科链接]（<a href="https://baike.baidu.com/item/%E4%BC%AA%E9%80%86%E7%9F%A9%E9%98%B5/7397859?fr=kg_qa）" target="_blank" rel="noopener">https://baike.baidu.com/item/%E4%BC%AA%E9%80%86%E7%9F%A9%E9%98%B5/7397859?fr=kg_qa）</a><br>通俗讲就是本来不能求逆的矩阵，求逆出来的结果。<br>6.矩阵分解：是将矩阵拆解为数个矩阵的乘积，可分为三角分解、满秩分解、QR分解、Jordan分解和SVD（奇异值）分解等。相当于将一个数（矩阵）分为多个数（矩阵）相乘。<br>7.奇异值分解（Singular Value Decomposition）[百科链接]（<a href="https://baike.baidu.com/item/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/4968432?fr=aladdin）" target="_blank" rel="noopener">https://baike.baidu.com/item/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3/4968432?fr=aladdin）</a><br>运用该方法目的是计算伪逆矩阵。</p>
-<h1 id="使用界面"><a href="#使用界面" class="headerlink" title="使用界面"></a>使用界面</h1><p><img src="%E5%BC%80%E5%A7%8B%E7%95%8C%E9%9D%A2.png" alt="开始"><br><img src="%E6%A0%B7%E5%93%81.png" alt="矩阵分布"><br>按照计算设置选取矩阵及名称<br><img src="GeoBalance%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B.gif" alt="使用过程"></p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>A矩阵是m种成分分布在n种相中。向量b代表的是m种成分在同一相的比例。x代表各相所占质量百分比。<br>在常见的岩石地球化学研究实践中，主要关注从方程Ax = b中求出x。但是，解决这个问题并不简单，因为Ax = b中解(x)有四种情况，矩阵A的秩r与行数m、列数n的关系不同导致结果不同，分情况讨论:</p>
-<p>（1）矩阵A r=m=n，矩阵A是一个方阵、可逆非奇异矩阵，Ax = b有唯一解;<br> $$X=A^{-}b$$<br>解法：因为矩阵A为满秩方阵。所以可求出A矩阵的逆矩阵。通过求解A的逆矩阵便可求解x。<br>手算A逆矩阵方法有三种，待定系数法，伴随矩阵法，初等变换法。<a href="https://blog.csdn.net/u011636160/article/details/49019513" target="_blank" rel="noopener">方法</a><br>不同语言机算也只需要一个命令即可。<br>但是该式并不能很好地应用在计算</p>
-<p>（2）r=m &lt; n,方程比未知数少，x有无穷个解<br>（3）r=n &lt; m，方程比未知数多，矩阵为超定的，x有1个或无解<br>（4）如果r &lt; n,并且r &lt; m,矩阵A缺秩（m≠n）或者是奇异性矩阵（m=n）x有0或无穷解</p>
-<p>然而，在大多数岩石学研究中，相律控制着化学反应，组分数（m）通常大于相数（n）。即为第三种或第四种情况。在这样的情况下，矩阵不可逆。<br>只可以可以获得其近似解$X_{ls}$。<br>这就涉及到最小二乘问题的解法。</p>
-<h1 id="最小二乘问题"><a href="#最小二乘问题" class="headerlink" title="最小二乘问题"></a>最小二乘问题</h1><p>最小二乘问题通常通过矩阵分解得到答案。最小二乘解$X_{ls}$可以通过一个矩阵等式计算出来。<br>$$X_{ls} = A^{+}b$$<br>$A^{+}$是矩阵的A的伪逆矩阵。如果A矩阵的逆矩阵存在，伪逆矩阵与逆矩阵相同。<br>计算该伪逆矩阵的方法即为矩阵的奇异性分解。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>1.相比而言，对比GCDkit，GeoBalance缺少了灵活性但更好上手。</p>
-<p>2.GCDkit不适应于4.01版本R语言最新环境。<br>package ‘GCDkit’ is not available (for R version 4.0.1)</p>
-<p>3.当理解这些原理，便可以在其他语言或软件中进行实现。</p>
-<p>但其实更难的是解释数据。<br>[GeoBalance下载链接]<a href="https://doi.org/10.1016/j.chemer.2020.125629" target="_blank" rel="noopener">https://doi.org/10.1016/j.chemer.2020.125629</a></p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p> Li X , Zhang C , Almeev R R , et al. GeoBalance: An Excel VBA program for mass balance calculation in geosciences[J]. Geochemistry, 2020:125629.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,150 +213,25 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">geobalance</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MSWD</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/06/Geobalance/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/07/09/latex/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          用latex排版
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/05/assignR/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">看assignR包的功能</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用界面"><span class="toc-number">1.</span> <span class="toc-text">使用界面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法"><span class="toc-number">2.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最小二乘问题"><span class="toc-number">3.</span> <span class="toc-text">最小二乘问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://yoursite.com/2020/07/06/Geobalance/",
-  owner: 'chengkaide',
-  repo: 'chengkaide.github.io',
-  oauth: {
-    client_id: '7b5dc4520e8b83b5b2e5',
-    client_secret: '56183c0e667b578cb7096e851ba17de903874a81',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -401,9 +256,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: ture,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
