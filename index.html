@@ -176,6 +176,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-melts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/22/melts/">MELTS使用例子</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/22/melts/" class="archive-article-date">
+  	<time datetime="2020-07-22T14:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MELTS系列软件是模拟岩浆演化的工具。<br>温馨提示：MELTS系列软件各个独立软件版本均不具有绘图功能。</p>
+<h1 id="MELTS的安装与使用"><a href="#MELTS的安装与使用" class="headerlink" title="MELTS的安装与使用"></a>MELTS的安装与使用</h1><p>总而言之，windows系统下使用MELTS的体验是最差的。<br>如果你用惯了windows系统，那么使用WSL显然是一个再好不过的选择。<br>但是换一个操作系统未尝不是一件好事。</p>
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><p>在开始计算熔体之前，需要六个约束条件:</p>
+<ol>
+<li>全岩成分</li>
+<li>温度，压力</li>
+<li>热力学势选择</li>
+<li>氧逸度</li>
+<li>开放或封闭体系</li>
+<li>分步或平衡模型</li>
+</ol>
+<p>Commands → Open 选择 morb.melts</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>检验MELTS – 简单的例子<br>这个例子是检验melts是否安装正确。<br>展示如何读取数据，并展开简单计算。</p>
+<ol>
+<li>启动Rhyolite-MELTS，点击Commands菜单</li>
+<li>打开Open按钮寻找输入文档</li>
+<li>读取Morb.melts</li>
+<li>以下四件事需要完成<br>①    系统的批量组成已经定义。在这种情况下，MORB的组成已经进入液体显示面板。<br>②    输入了初始和最终温度和压力，并定义了建模的增量。在这种情况下，输入液相线温度(1200 摄氏度)的估计值、固相线温度(1000 摄氏度)的估计值和报告结果的温度测量值(3 摄氏度)。通过将初始压力和最终压力设置为该值，压力保持在500巴不变。这些项目可能通过上方按钮设置。<br>③    限制条件已经明确(例如平衡结晶或分步结晶)。在这种情况下，系统发展到接近于mass transfer(即以分馏方式而不是平衡方式，且总氧含量固定)。反应路径通过在p不变时改变T的值来确定，这是默认的建模方法。其他选项通过选项（options）菜单定义。<br>④    系统铁与亚铁比值输入或进行计算过。系统使用的是MORB玻璃的铁/亚铁，这间接地使岩浆的氧逸度落在液相线上。</li>
+<li>接下来，选择命令Commands，Find Liquidus。MELTS应该会在系统温度上进行迭代，直至液相线固定。计算出的液相线温度会被指定为系统的初始温度。首先出现在液相线至上的相会在状态显示面板中指出。这个相的化学亲和性近于0。</li>
+<li>在这一阶段，初始条件和反应路径约束已经确定。通过调用Commands菜单中的Exceute/Halt条目，可以启动结晶模型。建模结果被输出到显示器和许多磁盘文件中。有关显示元素(包括图形)的信息，请参阅手册页。模型可以在任何时候通过调用Commands菜单中的Execute/Halt条目来停止。用户可以更改批量组成或模型约束，并使用相同的菜单条目重新启动计算。手册页描述了在程序运行时可能出现的许多常见数值问题。</li>
+</ol>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>像任何实现复杂迭代数值算法的软件包一样，melt有时会出现问题。<br>如果出现以下弹出对话框:<br>“THE QUADRATIC MINIMIZATION”<br>阅读状态显示面板的内容说明，然后继续操作。“二次故障”几乎总是可以恢复的。（“Quadratic Failure”）</p>
+<p>如果出现以下弹出对话框:<br>“A  FATAL  ARITHMETIC ERROR HAS OCCURRED.”<br>然后程序目前处于不稳定状态，用户必须在继续计算之前采取行动纠正问题。<br>关闭致命错误对话框。<br>保存系统当前状态(另存为…)在命令菜单上)。<br>退出程序(在命令菜单中退出)。<br>重启程序并读取已保存的系统(打开…在命令菜单上)。<br>检查系统的体积组成，任何接近零的氧化物成分。这些可能造成了数值问题。试着消除它们。<br>重新启动计算(在命令菜单上执行/暂停)。</p>
+<h1 id="状态显示面板"><a href="#状态显示面板" class="headerlink" title="状态显示面板"></a>状态显示面板</h1><p>显示界面如同终端窗口。计算进度和报告都被记录在这个面板里。<br>&lt;&gt; Constraint Change: System temperature.<br>每次温度或一些其他约束参数(见T,P…进入intensive Variables菜单可见)在模型计算期间发生变化，该变化将在此面板中公布。</p>
+<p>…Checking saturation state of potential solids.<br>计算中最耗费时间的一个阶段是随着温度、压力和液体成分的变化来评估固相的饱和状态。在进入这个计算阶段之前，会显示上面的消息。饱和状态总是在确定系统的平衡状态之前进行评估。</p>
+<p>…Projecting equality constraints.<br>…Minimizing the thermodynamic potential.<br>这两个消息都宣布开始尝试计算系统的平衡状态。</p>
+<p>…–&gt;Solving quadratic minimization Iter: 1.<br>热力学势的最小化是通过一系列二次逼近来实现的。每个近似产生一个解向量和一个残差向量。</p>
+<p>…–&gt;rNorm = 0.0316353, sNorm = 0.310069<br>这些向量的范数(或长度)分别由sNorm和rNorm给出。当一系列二次近似找到热力学势的最小值时，范数应为零。</p>
+<p>…–&gt;Linear search: Min = -1.63844e+06, step = 0.923328<br>…–&gt;Linear search: Min = -1.63844e+06, step = 1<br>二次最小化尝试之后是沿着二次搜索方向的线性搜索。这种线性搜索试图找到函数的最小值。如果事情进展顺利，二次搜索方向(step)的步长应该接近统一。Min表示热力学势最小的值。</p>
+<p>…–&gt;Solving quadratic minimization Iter: 6.<br>…–&gt;rNorm = 1.52606e-13, sNorm = 0.311589<br>…Checking saturation state of potential solids.<br>当函数达到最小值(即平衡值)时，rNorm降低到机器精度以下，二次逼近序列终止。饱和状态再次检查，以确保其他相位没有出现在液相线以下，使电位最小。</p>
+<p>…Quadratic convergence failure. Aborting.<br>如果执行的二次步数超过100，并且rNorm还没有减少到足以切换收敛的程度，你会看到上面的消息，这个对话框会出现。在这种情况下，通过稍微改变T、P或批量组成来扰乱系统，然后使用命令菜单上的Execute/Halt条目再次开始计算。</p>
+<p>&lt;&gt; Stable liquid solid assemblage achieved.<br>Current state of the system recorded in file MELTS.OUT.<br>这些信息表明，在熔体界面上显示的液相和固相的组成和比例代表了稳定或平衡的组合。</p>
+<h1 id="简单使用案例"><a href="#简单使用案例" class="headerlink" title="简单使用案例"></a>简单使用案例</h1><h2 id="等压平衡结晶"><a href="#等压平衡结晶" class="headerlink" title="等压平衡结晶"></a>等压平衡结晶</h2><ol>
+<li><p>打开MELTS软件</p>
+</li>
+<li><p>在液体成分界面输入橄榄拉斑玄武岩数据<br>SiO2   48.21   TiO2    1.70   Al2O3  15.23   FeO(T) 10.00<br>MgO     8.72   CaO    11.51   Na2O    2.29   K2O     0.20<br>H2O     0.10</p>
+</li>
+<li><p>设置温度和压力，起始温度设置成对岩石液相线温度。停止温度为该模型的结束温度。温度增量是模型增量。开始与结束的压力都设置成相同的，使得演化过程是等压的。压力增量可以留空。在这个例子中，dP/dT梯度为零，不需要输入。</p>
+</li>
+<li><p>一定要确定铁的比值，只有全铁含量不行 ，运行程序需要一个假定岩浆氧化还原条件。所以可以使氧逸度为Q-F-M buffer 在最开始的温度和压力之下，点击 intensive variables 按钮选择 Q-Fa-Mt限制。下一步，选择Composition 菜单并且选择Compute Redox State 入口。二价铁与三价铁的数量就会显示在液体成分显示界面上，也会影响到铁的比值。计算出铁比值之后，取消该限制。</p>
+<h2 id="沿特定氧化还原路径等压平衡结晶"><a href="#沿特定氧化还原路径等压平衡结晶" class="headerlink" title="沿特定氧化还原路径等压平衡结晶"></a>沿特定氧化还原路径等压平衡结晶</h2><p>只需选中氧化还原条件后不进行更改，其余步骤相同</p>
+<h2 id="等压分步结晶"><a href="#等压分步结晶" class="headerlink" title="等压分步结晶"></a>等压分步结晶</h2><p>选中Options—Fractionation，其余步骤相同</p>
+</li>
+</ol>
+<p>翻译自 MELTS 使用手册</p>
+<h1 id="使用Rhyolite-MELTS-GUI-for-LINUX"><a href="#使用Rhyolite-MELTS-GUI-for-LINUX" class="headerlink" title="使用Rhyolite-MELTS GUI for LINUX"></a>使用Rhyolite-MELTS GUI for LINUX</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MELTS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/22/melts/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MSWD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -360,10 +482,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用ctex编译<br><a href="https://blog.csdn.net/muzhicihe/article/details/80326090" target="_blank" rel="noopener">latex下载</a><br><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[AtuoFakeBold]&#123;ctexart&#125;%加粗效果</span><br><span class="line">%\usepackage&#123;ctex&#125;</span><br><span class="line">\usepackage[colorlinks,urlcolor=blue,linkcolor=black]&#123;hyperref&#125;%超链接</span><br><span class="line">\usepackage[<span class="keyword">super</span>]&#123;gbt7714&#125;%参考文献排版标准</span><br><span class="line">\usepackage[left=<span class="number">2.5</span>cm,right=<span class="number">1.97</span>cm,top=<span class="number">2.5</span>cm,bottom=<span class="number">2.5</span>cm]&#123;geometry&#125;</span><br><span class="line">\renewcommand&#123;\baselinestretch&#125;&#123;<span class="number">1.25</span>&#125;</span><br><span class="line">\usepackage&#123;fontspec&#125;</span><br><span class="line">\setmainfont&#123;Times New Roman&#125;%罗马字体</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%\usepackage[<span class="keyword">super</span>]&#123;cite&#125;%参考文献上标</span><br><span class="line">%\renewcommand\@citess[1]&#123;\textsuperscript&#123;[#1]&#125;&#125;%加上中括号</span><br><span class="line"></span><br><span class="line">\ctexset&#123;section=&#123;format=&#123;\heiti \zihao&#123;<span class="number">4</span>&#125; \bfseries&#125;&#125;,</span><br><span class="line">subsection=&#123;format=&#123;\heiti \zihao&#123;<span class="number">5</span>&#125; \bfseries&#125;&#125;,</span><br><span class="line">subsubsection=&#123;format=&#123;\kaishu \zihao&#123;<span class="number">5</span>&#125;&#125;&#125;&#125;</span><br><span class="line">%***************中文标题****************</span><br><span class="line">\title&#123;\heiti \zihao&#123;<span class="number">2</span>&#125;论文的题目&#125;</span><br><span class="line">\author&#123;\kaishu \zihao&#123;<span class="number">-4</span>&#125; 作者姓名\\\songti \zihao&#123;<span class="number">-5</span>&#125; 工作单位\quad 具体到学院&#125;</span><br><span class="line">\date&#123;\today&#125;</span><br><span class="line">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span><br><span class="line">\begin&#123;<span class="built_in">document</span>&#125;</span><br><span class="line">	\maketitle</span><br><span class="line">	\noindent \heiti 摘要:\songti 写摘要。\\</span><br><span class="line">	\heiti 关键词: \songti \LaTeX ; 中文期刊\\</span><br><span class="line">	\heiti 中图分类号: \songti <span class="number">000</span>\hspace&#123;<span class="number">3</span>cm&#125;</span><br><span class="line">	\heiti 文献标识码: \songti A  \\</span><br><span class="line">	%英文标题居中加粗</span><br><span class="line">\begin&#123;center&#125;</span><br><span class="line">	\textbf&#123;\zihao&#123;<span class="number">4</span>&#125; How to take notes <span class="keyword">with</span> \LaTeX \\&#125;</span><br><span class="line">	\zihao&#123;<span class="number">5</span>&#125; chengkaide\\</span><br><span class="line">	\zihao&#123;<span class="number">-5</span>&#125; ( China University <span class="keyword">of</span> Geoscience (Wuhan) )\\</span><br><span class="line">\end&#123;center&#125;</span><br><span class="line">    \textbf&#123;Abstract&#125;: <span class="keyword">this</span> is a test.\\</span><br><span class="line">    \textbf&#123;Keywords&#125;: \LaTeX \\</span><br><span class="line">    </span><br><span class="line">\section&#123;标题&#125;</span><br><span class="line">参考文献，使用bibtex格式导入即可。</span><br><span class="line"></span><br><span class="line">这里有参考文献\cite&#123;Audetat2000&#125;。</span><br><span class="line">第二篇参考文献\cite&#123;H2019&#125;</span><br><span class="line">第三篇参考文献\cite&#123;Korges2017&#125;</span><br><span class="line">第四篇参考文献\cite&#123;Lecumberri2017&#125;</span><br><span class="line"></span><br><span class="line">\section&#123;Sn元素含量&#125;</span><br><span class="line">\subsection&#123;crazy&#125;</span><br><span class="line">\subsubsection&#123;successful&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\begin&#123;center&#125;</span><br><span class="line">	\bibliography&#123;myref&#125;	%展示全部参考文献</span><br><span class="line">\end&#123;center&#125;</span><br><span class="line"></span><br><span class="line">\end&#123;<span class="built_in">document</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
+        <p>尝试使用过Latex排版作业，最后排版的东西很美观。但是内容是更重要的。<br>使用ctex编译<br><a href="https://blog.csdn.net/muzhicihe/article/details/80326090" target="_blank" rel="noopener">latex下载</a><br><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio</a></p>
+        
+          <a class="article-more-a" href="/2020/07/09/latex/#more">more >></a>
+        
       
 
       
@@ -877,72 +999,6 @@
 
 
   
-    <article id="post-流体包裹体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/">加深理解流体包裹体成分计算原理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/" class="archive-article-date">
-  	<time datetime="2020-03-19T08:54:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要通过对sills软件官方网站中sills_equations文档中的公式的翻译及理解，用来分享我的体会。希望能够为对此感兴趣的朋友提供更多信息渠道。</p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>i—任意元素i</p>
-        
-          <a class="article-more-a" href="/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/19/%E6%B5%81%E4%BD%93%E5%8C%85%E8%A3%B9%E4%BD%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1109,6 +1165,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">拉曼光谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MELTS</a>
               </li>
             
             <div class="clearfix"></div>

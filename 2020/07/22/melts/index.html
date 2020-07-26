@@ -13,16 +13,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | 成凯得的博客</title>
+  <title>MELTS使用例子 | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习GCDkit软件过程及体会">
-<meta property="og:type" content="website">
-<meta property="og:title" content="成凯得的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index.html">
+  <meta name="description" content="MELTS系列软件是模拟岩浆演化的工具。温馨提示：MELTS系列软件各个独立软件版本均不具有绘图功能。 MELTS的安装与使用总而言之，windows系统下使用MELTS的体验是最差的。如果你用惯了windows系统，那么使用WSL显然是一个再好不过的选择。但是换一个操作系统未尝不是一件好事。 使用示例在开始计算熔体之前，需要六个约束条件:  全岩成分 温度，压力 热力学势选择 氧逸度 开放或封闭">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MELTS使用例子">
+<meta property="og:url" content="http://yoursite.com/2020/07/22/melts/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="学习GCDkit软件过程及体会">
+<meta property="og:description" content="MELTS系列软件是模拟岩浆演化的工具。温馨提示：MELTS系列软件各个独立软件版本均不具有绘图功能。 MELTS的安装与使用总而言之，windows系统下使用MELTS的体验是最差的。如果你用惯了windows系统，那么使用WSL显然是一个再好不过的选择。但是换一个操作系统未尝不是一件好事。 使用示例在开始计算熔体之前，需要六个约束条件:  全岩成分 温度，压力 热力学势选择 氧逸度 开放或封闭">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-22T14:41:41.000Z">
+<meta property="article:modified_time" content="2020-07-26T07:50:01.350Z">
 <meta property="article:author" content="成凯得">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="MELTS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="成凯得的博客" type="application/atom+xml">
@@ -174,36 +178,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-melts" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/22/melts/" class="archive-article-date">
-  	<time datetime="2020-07-22T14:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/22/melts/">MELTS使用例子</a>
+    <h1 class="article-title" itemprop="name">
+      MELTS使用例子
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/22/melts/" class="archive-article-date">
+  	<time datetime="2020-07-22T14:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MELTS系列软件是模拟岩浆演化的工具。<br>温馨提示：MELTS系列软件各个独立软件版本均不具有绘图功能。</p>
+<h1 id="MELTS的安装与使用"><a href="#MELTS的安装与使用" class="headerlink" title="MELTS的安装与使用"></a>MELTS的安装与使用</h1><p>总而言之，windows系统下使用MELTS的体验是最差的。<br>如果你用惯了windows系统，那么使用WSL显然是一个再好不过的选择。<br>但是换一个操作系统未尝不是一件好事。</p>
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><p>在开始计算熔体之前，需要六个约束条件:</p>
+<ol>
+<li>全岩成分</li>
+<li>温度，压力</li>
+<li>热力学势选择</li>
+<li>氧逸度</li>
+<li>开放或封闭体系</li>
+<li>分步或平衡模型</li>
+</ol>
+<p>Commands → Open 选择 morb.melts</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>检验MELTS – 简单的例子<br>这个例子是检验melts是否安装正确。<br>展示如何读取数据，并展开简单计算。</p>
+<ol>
+<li>启动Rhyolite-MELTS，点击Commands菜单</li>
+<li>打开Open按钮寻找输入文档</li>
+<li>读取Morb.melts</li>
+<li>以下四件事需要完成<br>①    系统的批量组成已经定义。在这种情况下，MORB的组成已经进入液体显示面板。<br>②    输入了初始和最终温度和压力，并定义了建模的增量。在这种情况下，输入液相线温度(1200 摄氏度)的估计值、固相线温度(1000 摄氏度)的估计值和报告结果的温度测量值(3 摄氏度)。通过将初始压力和最终压力设置为该值，压力保持在500巴不变。这些项目可能通过上方按钮设置。<br>③    限制条件已经明确(例如平衡结晶或分步结晶)。在这种情况下，系统发展到接近于mass transfer(即以分馏方式而不是平衡方式，且总氧含量固定)。反应路径通过在p不变时改变T的值来确定，这是默认的建模方法。其他选项通过选项（options）菜单定义。<br>④    系统铁与亚铁比值输入或进行计算过。系统使用的是MORB玻璃的铁/亚铁，这间接地使岩浆的氧逸度落在液相线上。</li>
+<li>接下来，选择命令Commands，Find Liquidus。MELTS应该会在系统温度上进行迭代，直至液相线固定。计算出的液相线温度会被指定为系统的初始温度。首先出现在液相线至上的相会在状态显示面板中指出。这个相的化学亲和性近于0。</li>
+<li>在这一阶段，初始条件和反应路径约束已经确定。通过调用Commands菜单中的Exceute/Halt条目，可以启动结晶模型。建模结果被输出到显示器和许多磁盘文件中。有关显示元素(包括图形)的信息，请参阅手册页。模型可以在任何时候通过调用Commands菜单中的Execute/Halt条目来停止。用户可以更改批量组成或模型约束，并使用相同的菜单条目重新启动计算。手册页描述了在程序运行时可能出现的许多常见数值问题。</li>
+</ol>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>像任何实现复杂迭代数值算法的软件包一样，melt有时会出现问题。<br>如果出现以下弹出对话框:<br>“THE QUADRATIC MINIMIZATION”<br>阅读状态显示面板的内容说明，然后继续操作。“二次故障”几乎总是可以恢复的。（“Quadratic Failure”）</p>
+<p>如果出现以下弹出对话框:<br>“A  FATAL  ARITHMETIC ERROR HAS OCCURRED.”<br>然后程序目前处于不稳定状态，用户必须在继续计算之前采取行动纠正问题。<br>关闭致命错误对话框。<br>保存系统当前状态(另存为…)在命令菜单上)。<br>退出程序(在命令菜单中退出)。<br>重启程序并读取已保存的系统(打开…在命令菜单上)。<br>检查系统的体积组成，任何接近零的氧化物成分。这些可能造成了数值问题。试着消除它们。<br>重新启动计算(在命令菜单上执行/暂停)。</p>
+<h1 id="状态显示面板"><a href="#状态显示面板" class="headerlink" title="状态显示面板"></a>状态显示面板</h1><p>显示界面如同终端窗口。计算进度和报告都被记录在这个面板里。<br>&lt;&gt; Constraint Change: System temperature.<br>每次温度或一些其他约束参数(见T,P…进入intensive Variables菜单可见)在模型计算期间发生变化，该变化将在此面板中公布。</p>
+<p>…Checking saturation state of potential solids.<br>计算中最耗费时间的一个阶段是随着温度、压力和液体成分的变化来评估固相的饱和状态。在进入这个计算阶段之前，会显示上面的消息。饱和状态总是在确定系统的平衡状态之前进行评估。</p>
+<p>…Projecting equality constraints.<br>…Minimizing the thermodynamic potential.<br>这两个消息都宣布开始尝试计算系统的平衡状态。</p>
+<p>…–&gt;Solving quadratic minimization Iter: 1.<br>热力学势的最小化是通过一系列二次逼近来实现的。每个近似产生一个解向量和一个残差向量。</p>
+<p>…–&gt;rNorm = 0.0316353, sNorm = 0.310069<br>这些向量的范数(或长度)分别由sNorm和rNorm给出。当一系列二次近似找到热力学势的最小值时，范数应为零。</p>
+<p>…–&gt;Linear search: Min = -1.63844e+06, step = 0.923328<br>…–&gt;Linear search: Min = -1.63844e+06, step = 1<br>二次最小化尝试之后是沿着二次搜索方向的线性搜索。这种线性搜索试图找到函数的最小值。如果事情进展顺利，二次搜索方向(step)的步长应该接近统一。Min表示热力学势最小的值。</p>
+<p>…–&gt;Solving quadratic minimization Iter: 6.<br>…–&gt;rNorm = 1.52606e-13, sNorm = 0.311589<br>…Checking saturation state of potential solids.<br>当函数达到最小值(即平衡值)时，rNorm降低到机器精度以下，二次逼近序列终止。饱和状态再次检查，以确保其他相位没有出现在液相线以下，使电位最小。</p>
+<p>…Quadratic convergence failure. Aborting.<br>如果执行的二次步数超过100，并且rNorm还没有减少到足以切换收敛的程度，你会看到上面的消息，这个对话框会出现。在这种情况下，通过稍微改变T、P或批量组成来扰乱系统，然后使用命令菜单上的Execute/Halt条目再次开始计算。</p>
+<p>&lt;&gt; Stable liquid solid assemblage achieved.<br>Current state of the system recorded in file MELTS.OUT.<br>这些信息表明，在熔体界面上显示的液相和固相的组成和比例代表了稳定或平衡的组合。</p>
+<h1 id="简单使用案例"><a href="#简单使用案例" class="headerlink" title="简单使用案例"></a>简单使用案例</h1><h2 id="等压平衡结晶"><a href="#等压平衡结晶" class="headerlink" title="等压平衡结晶"></a>等压平衡结晶</h2><ol>
+<li><p>打开MELTS软件</p>
+</li>
+<li><p>在液体成分界面输入橄榄拉斑玄武岩数据<br>SiO2   48.21   TiO2    1.70   Al2O3  15.23   FeO(T) 10.00<br>MgO     8.72   CaO    11.51   Na2O    2.29   K2O     0.20<br>H2O     0.10</p>
+</li>
+<li><p>设置温度和压力，起始温度设置成对岩石液相线温度。停止温度为该模型的结束温度。温度增量是模型增量。开始与结束的压力都设置成相同的，使得演化过程是等压的。压力增量可以留空。在这个例子中，dP/dT梯度为零，不需要输入。</p>
+</li>
+<li><p>一定要确定铁的比值，只有全铁含量不行 ，运行程序需要一个假定岩浆氧化还原条件。所以可以使氧逸度为Q-F-M buffer 在最开始的温度和压力之下，点击 intensive variables 按钮选择 Q-Fa-Mt限制。下一步，选择Composition 菜单并且选择Compute Redox State 入口。二价铁与三价铁的数量就会显示在液体成分显示界面上，也会影响到铁的比值。计算出铁比值之后，取消该限制。</p>
+<h2 id="沿特定氧化还原路径等压平衡结晶"><a href="#沿特定氧化还原路径等压平衡结晶" class="headerlink" title="沿特定氧化还原路径等压平衡结晶"></a>沿特定氧化还原路径等压平衡结晶</h2><p>只需选中氧化还原条件后不进行更改，其余步骤相同</p>
+<h2 id="等压分步结晶"><a href="#等压分步结晶" class="headerlink" title="等压分步结晶"></a>等压分步结晶</h2><p>选中Options—Fractionation，其余步骤相同</p>
+</li>
+</ol>
+<p>翻译自 MELTS 使用手册</p>
+<h1 id="使用Rhyolite-MELTS-GUI-for-LINUX"><a href="#使用Rhyolite-MELTS-GUI-for-LINUX" class="headerlink" title="使用Rhyolite-MELTS GUI for LINUX"></a>使用Rhyolite-MELTS GUI for LINUX</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,149 +266,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/22/melts/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/18/MSWD/" class="archive-article-date">
-  	<time datetime="2020-07-18T08:48:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/18/MSWD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MSWD如何衡量地质年龄质量？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/MSWD/">MSWD如何衡量地质年龄质量？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">MSWD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MELTS的安装与使用"><span class="toc-number">1.</span> <span class="toc-text">MELTS的安装与使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用示例"><span class="toc-number">2.</span> <span class="toc-text">使用示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始"><span class="toc-number">3.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见问题"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态显示面板"><span class="toc-number">5.</span> <span class="toc-text">状态显示面板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简单使用案例"><span class="toc-number">6.</span> <span class="toc-text">简单使用案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#等压平衡结晶"><span class="toc-number">6.1.</span> <span class="toc-text">等压平衡结晶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#沿特定氧化还原路径等压平衡结晶"><span class="toc-number">6.2.</span> <span class="toc-text">沿特定氧化还原路径等压平衡结晶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等压分步结晶"><span class="toc-number">6.3.</span> <span class="toc-text">等压分步结晶</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Rhyolite-MELTS-GUI-for-LINUX"><span class="toc-number">7.</span> <span class="toc-text">使用Rhyolite-MELTS GUI for LINUX</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/17/%E6%BF%80%E5%85%89%E6%8B%89%E6%9B%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-07-17T03:05:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/17/%E6%BF%80%E5%85%89%E6%8B%89%E6%9B%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">激光拉曼数据处理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">origin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">拉曼光谱</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/06/Geobalance/" class="archive-article-date">
-  	<time datetime="2020-07-06T09:22:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/06/Geobalance/">GeoBalance的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">geobalance</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2020/07/22/melts/",
+  owner: 'chengkaide',
+  repo: 'chengkaide.github.io',
+  oauth: {
+    client_id: '7b5dc4520e8b83b5b2e5',
+    client_secret: '56183c0e667b578cb7096e851ba17de903874a81',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -386,9 +419,9 @@
 	var yiliaConfig = {
 		mathjax: ture,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
