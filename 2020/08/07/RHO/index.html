@@ -13,17 +13,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: origin | 成凯得的博客</title>
+  <title>误差相关系数 | 成凯得的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习GCDkit软件过程及体会">
-<meta property="og:type" content="website">
-<meta property="og:title" content="成凯得的博客">
-<meta property="og:url" content="http://yoursite.com/tags/origin/index.html">
+  <meta name="description" content="通过ICPMSDataCal软件处理的结果报告中，对利用Isoplot作U-Pb年龄谐和图时所需要输入的误差相关系数（rho）已经进行了计算。计算方法为：$$rho &#x3D; cov( ^{206}Pb&#x2F;^{238}U,^{207}Pb&#x2F;^{235}U)&#x2F;(\sigma_{^{206}Pb&#x2F;^{238}U}\sigma_{^{207}Pb&#x2F;^{235}U})$$————————from Guideboo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="误差相关系数">
+<meta property="og:url" content="http://yoursite.com/2020/08/07/RHO/index.html">
 <meta property="og:site_name" content="成凯得的博客">
-<meta property="og:description" content="学习GCDkit软件过程及体会">
+<meta property="og:description" content="通过ICPMSDataCal软件处理的结果报告中，对利用Isoplot作U-Pb年龄谐和图时所需要输入的误差相关系数（rho）已经进行了计算。计算方法为：$$rho &#x3D; cov( ^{206}Pb&#x2F;^{238}U,^{207}Pb&#x2F;^{235}U)&#x2F;(\sigma_{^{206}Pb&#x2F;^{238}U}\sigma_{^{207}Pb&#x2F;^{235}U})$$————————from Guideboo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE5.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE6.png">
+<meta property="article:published_time" content="2020-08-07T03:30:58.000Z">
+<meta property="article:modified_time" content="2020-08-07T07:57:47.931Z">
 <meta property="article:author" content="成凯得">
+<meta property="article:tag" content="Isoplot">
+<meta property="article:tag" content="rho的计算">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE1.png">
   
     <link rel="alternative" href="/atom.xml" title="成凯得的博客" type="application/atom+xml">
   
@@ -174,68 +185,182 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-RHO" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/17/%E6%BF%80%E5%85%89%E6%8B%89%E6%9B%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-07-17T03:05:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/17/%E6%BF%80%E5%85%89%E6%8B%89%E6%9B%BC%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">激光拉曼数据处理</a>
+    <h1 class="article-title" itemprop="name">
+      误差相关系数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/07/RHO/" class="archive-article-date">
+  	<time datetime="2020-08-07T03:30:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过ICPMSDataCal软件处理的结果报告中，对利用Isoplot作U-Pb年龄谐和图时所需要输入的误差相关系数（rho）已经进行了计算。<br>计算方法为：<br>$$rho = cov( ^{206}Pb/^{238}U,^{207}Pb/^{235}U)/(\sigma_{^{206}Pb/^{238}U}\sigma_{^{207}Pb/^{235}U})$$<br>————————from Guidebook for ICPMSDataCal_Chinese</p>
+<p>两组数据的协方差与两组数据方差乘积。<br>它在作图中起到的作用是什么？修改它会不会产生不同年龄结果？</p>
+<a id="more"></a>
+<p>输入Error correlations窗口如下<br><img src="%E5%9B%BE1.png" alt="图1"><br>如果你计算rho，而是自己进行赋值，出现的情况为下图。<br>以下是不同rho，但是相同数据的谐和图。<br><img src="%E5%9B%BE2.png" alt="图2"><br><img src="%E5%9B%BE3.png" alt="图3"><br><img src="%E5%9B%BE4.png" alt="图4"><br><img src="%E5%9B%BE5.png" alt="图5"><br><img src="%E5%9B%BE6.png" alt="图6"><br>可以明显发现的是MSWD出现了变化，<br>并且误差椭圆也出现饱满程度的变化。即椭圆方程发生了变化。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Isoplot</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">origin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">拉曼光谱</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">rho的计算</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/07/RHO/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/08/05/CHNOSZ/CHNOSZ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CHNOSZ</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2020/08/07/RHO/",
+  owner: 'chengkaide',
+  repo: 'chengkaide.github.io',
+  oauth: {
+    client_id: '7b5dc4520e8b83b5b2e5',
+    client_secret: '56183c0e667b578cb7096e851ba17de903874a81',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -260,9 +385,9 @@
 	var yiliaConfig = {
 		mathjax: ture,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
