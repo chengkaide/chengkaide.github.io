@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE5.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/07/RHO/%E5%9B%BE6.png">
 <meta property="article:published_time" content="2020-08-07T03:30:58.000Z">
-<meta property="article:modified_time" content="2020-08-13T13:49:44.029Z">
+<meta property="article:modified_time" content="2020-09-10T11:14:53.167Z">
 <meta property="article:author" content="成凯得">
 <meta property="article:tag" content="Isoplot">
 <meta property="article:tag" content="rho的计算">
@@ -206,7 +206,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>通过ICPMSDataCal软件处理的结果报告中，对利用Isoplot作U-Pb年龄谐和图时所需要输入的误差相关系数（rho）已经进行了计算。<br>计算方法为：<br>$$rho = cov( ^{206}Pb/^{238}U,^{207}Pb/^{235}U)/(\sigma_{^{206}Pb/^{238}U}\sigma_{^{207}Pb/^{235}U})$$<br>————————from Guidebook for ICPMSDataCal_Chinese</p>
-<p>两组数据的协方差与两组数据方差乘积。<br>它在作图中起到的作用是什么？修改它会不会产生不同年龄结果？</p>
+<p>两组数据的协方差与两组数据方差相除。<br>它在作图中起到的作用是什么？修改它会不会产生不同年龄结果？</p>
 <a id="more"></a>
 <p>输入Error correlations窗口如下<br><img src="%E5%9B%BE1.png" alt="图1"><br>如果你计算rho，而是自己进行赋值，出现的情况为下图。<br>以下是不同rho，但是相同数据的谐和图。<br><img src="%E5%9B%BE2.png" alt="图2"><br><img src="%E5%9B%BE3.png" alt="图3"><br><img src="%E5%9B%BE4.png" alt="图4"><br><img src="%E5%9B%BE5.png" alt="图5"><br><img src="%E5%9B%BE6.png" alt="图6"><br>可以明显发现的是MSWD出现了变化，<br>并且误差椭圆也出现饱满程度的变化。即椭圆方程发生了变化。<br>如果将rho设定为固定值，那么做出的椭圆均为一个形状，不会出现大小各异的误差椭圆。</p>
 <p>在绘制U-Pb谐和图时，需要选择五行数据，包括两组U-Pb比值及rho便可以成图。<br>如果没有选择rho，则会弹出上述窗口。<br>ICPMSdataCal软件是会计算出Rho的，所以在绘制年龄图时要注意Rho的选择。</p>
@@ -573,6 +573,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">锆石</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工作笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">锆石Hf同位素</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Iso-compass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">振荡环带</a>
               </li>
             
             <div class="clearfix"></div>
